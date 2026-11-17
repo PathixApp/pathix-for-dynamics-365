@@ -1,0 +1,17 @@
+{
+  "@odata.context": "https://contoso.crm.dynamics.com/api/data/v9.2/$metadata#sdkmessageprocessingstepimages(sdkmessageprocessingstepimageid,name,entityalias,_sdkmessageprocessingstepid_value)",
+  "value": [
+    {
+      "entityalias": "PreBusinessEntity",
+      "_sdkmessageprocessingstepid_value": "5c4a0000-0000-4000-8000-000000000076",
+      "name": "",
+      "sdkmessageprocessingstepimageid": "5c4a0000-0000-4000-8000-000000000018"
+    },
+    {
+      "entityalias": "PostBusinessEntity",
+      "_sdkmessageprocessingstepid_value": "5c4a0000-0000-4000-8000-000000000076",
+      "name": "",
+      "sdkmessageprocessingstepimageid": "5c4a0000-0000-4000-8000-000000000052"
+    }
+  ]
+}

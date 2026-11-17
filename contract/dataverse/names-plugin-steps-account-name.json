@@ -1,0 +1,13 @@
+{
+  "@odata.context": "https://contoso.crm.dynamics.com/api/data/v9.2/$metadata#sdkmessageprocessingsteps(sdkmessageprocessingstepid,name)",
+  "value": [
+    {
+      "name": "sim_NoOp_06_Update_account",
+      "sdkmessageprocessingstepid": "5c4a0000-0000-4000-8000-000000000047"
+    },
+    {
+      "name": "PathixDemo: LateBoundCreditLimitWriter on Account.Update",
+      "sdkmessageprocessingstepid": "5c4a0000-0000-4000-8000-000000000048"
+    }
+  ]
+}

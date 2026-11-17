@@ -1,0 +1,320 @@
+{
+  "@odata.context": "https://contoso.crm.dynamics.com/api/data/v9.2/$metadata#sdkmessageprocessingsteps(sdkmessageprocessingstepid,name,stage,mode,rank,filteringattributes,statecode,solutionid,modifiedon,sdkmessageid(name))",
+  "value": [
+    {
+      "solutionid": "5c4a0000-0000-4000-8000-000000000077",
+      "stage": 5,
+      "rank": 2147483643,
+      "statecode": 0,
+      "name": "TargetAttributeValidationPlugin",
+      "filteringattributes": null,
+      "sdkmessageprocessingstepid": "5c4a0000-0000-4000-8000-000000000318",
+      "mode": 0,
+      "modifiedon": "2026-04-02T06:58:27Z",
+      "sdkmessageid": {
+        "sdkmessageid": "5c4a0000-0000-4000-8000-000000000089",
+        "name": "Update"
+      }
+    },
+    {
+      "solutionid": "5c4a0000-0000-4000-8000-000000000077",
+      "stage": 5,
+      "rank": 2147483643,
+      "statecode": 0,
+      "name": "IncomingUpdateLanguageCodePlugin",
+      "filteringattributes": null,
+      "sdkmessageprocessingstepid": "5c4a0000-0000-4000-8000-000000000319",
+      "mode": 0,
+      "modifiedon": "2026-04-02T06:58:27Z",
+      "sdkmessageid": {
+        "sdkmessageid": "5c4a0000-0000-4000-8000-000000000089",
+        "name": "Update"
+      }
+    },
+    {
+      "solutionid": "5c4a0000-0000-4000-8000-000000000077",
+      "stage": 5,
+      "rank": 2147483644,
+      "statecode": 0,
+      "name": "TargetAttributeValidationPlugin",
+      "filteringattributes": null,
+      "sdkmessageprocessingstepid": "5c4a0000-0000-4000-8000-000000000320",
+      "mode": 0,
+      "modifiedon": "2026-04-02T06:58:27Z",
+      "sdkmessageid": {
+        "sdkmessageid": "5c4a0000-0000-4000-8000-000000000089",
+        "name": "Update"
+      }
+    },
+    {
+      "solutionid": "5c4a0000-0000-4000-8000-000000000077",
+      "stage": 15,
+      "rank": -2147483648,
+      "statecode": 0,
+      "name": "GenericActivityUpdatePreOperationPlugin",
+      "filteringattributes": null,
+      "sdkmessageprocessingstepid": "5c4a0000-0000-4000-8000-000000000321",
+      "mode": 0,
+      "modifiedon": "2026-04-02T06:58:28Z",
+      "sdkmessageid": {
+        "sdkmessageid": "5c4a0000-0000-4000-8000-000000000089",
+        "name": "Update"
+      }
+    },
+    {
+      "solutionid": "5c4a0000-0000-4000-8000-000000000077",
+      "stage": 15,
+      "rank": -2147483647,
+      "statecode": 0,
+      "name": "OfflineQueuePrimaryKeyPlugin",
+      "filteringattributes": null,
+      "sdkmessageprocessingstepid": "5c4a0000-0000-4000-8000-000000000322",
+      "mode": 0,
+      "modifiedon": "2026-04-02T06:58:28Z",
+      "sdkmessageid": {
+        "sdkmessageid": "5c4a0000-0000-4000-8000-000000000089",
+        "name": "Update"
+      }
+    },
+    {
+      "solutionid": "5c4a0000-0000-4000-8000-000000000084",
+      "stage": 20,
+      "rank": 25,
+      "statecode": 0,
+      "name": "sim_NoOp_25_Update_global",
+      "filteringattributes": null,
+      "sdkmessageprocessingstepid": "5c4a0000-0000-4000-8000-000000000323",
+      "mode": 0,
+      "modifiedon": "2026-05-02T06:08:45Z",
+      "sdkmessageid": {
+        "sdkmessageid": "5c4a0000-0000-4000-8000-000000000089",
+        "name": "Update"
+      }
+    },
+    {
+      "solutionid": "5c4a0000-0000-4000-8000-000000000077",
+      "stage": 25,
+      "rank": 2147483645,
+      "statecode": 0,
+      "name": "MultiCurrencyPlugin",
+      "filteringattributes": null,
+      "sdkmessageprocessingstepid": "5c4a0000-0000-4000-8000-000000000324",
+      "mode": 0,
+      "modifiedon": "2026-04-02T06:58:27Z",
+      "sdkmessageid": {
+        "sdkmessageid": "5c4a0000-0000-4000-8000-000000000089",
+        "name": "Update"
+      }
+    },
+    {
+      "solutionid": "5c4a0000-0000-4000-8000-000000000077",
+      "stage": 25,
+      "rank": 2147483646,
+      "statecode": 0,
+      "name": "HasDuplicatesPlugin",
+      "filteringattributes": null,
+      "sdkmessageprocessingstepid": "5c4a0000-0000-4000-8000-000000000325",
+      "mode": 0,
+      "modifiedon": "2026-04-02T06:58:27Z",
+      "sdkmessageid": {
+        "sdkmessageid": "5c4a0000-0000-4000-8000-000000000089",
+        "name": "Update"
+      }
+    },
+    {
+      "solutionid": "5c4a0000-0000-4000-8000-000000000077",
+      "stage": 25,
+      "rank": 2147483647,
+      "statecode": 0,
+      "name": "HasDuplicatesPlugin",
+      "filteringattributes": null,
+      "sdkmessageprocessingstepid": "5c4a0000-0000-4000-8000-000000000326",
+      "mode": 0,
+      "modifiedon": "2026-04-02T06:58:27Z",
+      "sdkmessageid": {
+        "sdkmessageid": "5c4a0000-0000-4000-8000-000000000089",
+        "name": "Update"
+      }
+    },
+    {
+      "solutionid": "5c4a0000-0000-4000-8000-000000000077",
+      "stage": 25,
+      "rank": 2147483647,
+      "statecode": 0,
+      "name": "AuditCreateUpdatePlugin",
+      "filteringattributes": null,
+      "sdkmessageprocessingstepid": "5c4a0000-0000-4000-8000-000000000327",
+      "mode": 0,
+      "modifiedon": "2026-04-02T06:58:27Z",
+      "sdkmessageid": {
+        "sdkmessageid": "5c4a0000-0000-4000-8000-000000000089",
+        "name": "Update"
+      }
+    },
+    {
+      "solutionid": "5c4a0000-0000-4000-8000-000000000077",
+      "stage": 35,
+      "rank": -2147483648,
+      "statecode": 0,
+      "name": "GlobalActiveStagePlugin",
+      "filteringattributes": null,
+      "sdkmessageprocessingstepid": "5c4a0000-0000-4000-8000-000000000328",
+      "mode": 0,
+      "modifiedon": "2026-04-02T06:58:28Z",
+      "sdkmessageid": {
+        "sdkmessageid": "5c4a0000-0000-4000-8000-000000000089",
+        "name": "Update"
+      }
+    },
+    {
+      "solutionid": "5c4a0000-0000-4000-8000-000000000077",
+      "stage": 35,
+      "rank": -2147483648,
+      "statecode": 0,
+      "name": "QueueItemRoutePostOperationPlugin",
+      "filteringattributes": null,
+      "sdkmessageprocessingstepid": "5c4a0000-0000-4000-8000-000000000329",
+      "mode": 0,
+      "modifiedon": "2026-04-02T06:58:28Z",
+      "sdkmessageid": {
+        "sdkmessageid": "5c4a0000-0000-4000-8000-000000000089",
+        "name": "Update"
+      }
+    },
+    {
+      "solutionid": "5c4a0000-0000-4000-8000-000000000077",
+      "stage": 35,
+      "rank": -2147483648,
+      "statecode": 0,
+      "name": "MultiCurrencyPostOperationPlugin",
+      "filteringattributes": null,
+      "sdkmessageprocessingstepid": "5c4a0000-0000-4000-8000-000000000330",
+      "mode": 0,
+      "modifiedon": "2026-04-02T06:58:28Z",
+      "sdkmessageid": {
+        "sdkmessageid": "5c4a0000-0000-4000-8000-000000000089",
+        "name": "Update"
+      }
+    },
+    {
+      "solutionid": "5c4a0000-0000-4000-8000-000000000077",
+      "stage": 35,
+      "rank": -2147483648,
+      "statecode": 0,
+      "name": "OfflineQueueCapturePlugin",
+      "filteringattributes": null,
+      "sdkmessageprocessingstepid": "5c4a0000-0000-4000-8000-000000000331",
+      "mode": 0,
+      "modifiedon": "2026-04-02T06:58:28Z",
+      "sdkmessageid": {
+        "sdkmessageid": "5c4a0000-0000-4000-8000-000000000089",
+        "name": "Update"
+      }
+    },
+    {
+      "solutionid": "5c4a0000-0000-4000-8000-000000000077",
+      "stage": 35,
+      "rank": -2147483647,
+      "statecode": 0,
+      "name": "PersistMatchcodesPlugin",
+      "filteringattributes": null,
+      "sdkmessageprocessingstepid": "5c4a0000-0000-4000-8000-000000000332",
+      "mode": 0,
+      "modifiedon": "2026-04-02T06:58:28Z",
+      "sdkmessageid": {
+        "sdkmessageid": "5c4a0000-0000-4000-8000-000000000089",
+        "name": "Update"
+      }
+    },
+    {
+      "solutionid": "5c4a0000-0000-4000-8000-000000000077",
+      "stage": 35,
+      "rank": -2147483647,
+      "statecode": 0,
+      "name": "DataSyncNotificationPlugin",
+      "filteringattributes": null,
+      "sdkmessageprocessingstepid": "5c4a0000-0000-4000-8000-000000000333",
+      "mode": 0,
+      "modifiedon": "2026-04-02T06:58:28Z",
+      "sdkmessageid": {
+        "sdkmessageid": "5c4a0000-0000-4000-8000-000000000089",
+        "name": "Update"
+      }
+    },
+    {
+      "solutionid": "5c4a0000-0000-4000-8000-000000000077",
+      "stage": 35,
+      "rank": -2147483646,
+      "statecode": 0,
+      "name": "ActionCardActivityPlugin",
+      "filteringattributes": "statecode,regardingobjectid,scheduledend,scheduledstart,subject,location",
+      "sdkmessageprocessingstepid": "5c4a0000-0000-4000-8000-000000000334",
+      "mode": 0,
+      "modifiedon": "2026-04-02T06:58:28Z",
+      "sdkmessageid": {
+        "sdkmessageid": "5c4a0000-0000-4000-8000-000000000089",
+        "name": "Update"
+      }
+    },
+    {
+      "solutionid": "5c4a0000-0000-4000-8000-000000000335",
+      "stage": 45,
+      "rank": -2147483648,
+      "statecode": 0,
+      "name": "WorkflowNotificationPlugin of UpdateMultiple",
+      "filteringattributes": null,
+      "sdkmessageprocessingstepid": "5c4a0000-0000-4000-8000-000000000336",
+      "mode": 0,
+      "modifiedon": "2026-04-02T11:54:11Z",
+      "sdkmessageid": {
+        "sdkmessageid": "5c4a0000-0000-4000-8000-000000000136",
+        "name": "UpdateMultiple"
+      }
+    },
+    {
+      "solutionid": "5c4a0000-0000-4000-8000-000000000158",
+      "stage": 45,
+      "rank": 1,
+      "statecode": 0,
+      "name": "Callback Registration Expander",
+      "filteringattributes": null,
+      "sdkmessageprocessingstepid": "5c4a0000-0000-4000-8000-000000000337",
+      "mode": 0,
+      "modifiedon": "2026-08-04T02:40:54Z",
+      "sdkmessageid": {
+        "sdkmessageid": "5c4a0000-0000-4000-8000-000000000089",
+        "name": "Update"
+      }
+    },
+    {
+      "solutionid": "5c4a0000-0000-4000-8000-000000000077",
+      "stage": 45,
+      "rank": 2147483646,
+      "statecode": 0,
+      "name": "Notifies workflow that entity has been updated.",
+      "filteringattributes": null,
+      "sdkmessageprocessingstepid": "5c4a0000-0000-4000-8000-000000000338",
+      "mode": 0,
+      "modifiedon": "2026-04-02T06:58:28Z",
+      "sdkmessageid": {
+        "sdkmessageid": "5c4a0000-0000-4000-8000-000000000089",
+        "name": "Update"
+      }
+    },
+    {
+      "solutionid": "5c4a0000-0000-4000-8000-000000000077",
+      "stage": 45,
+      "rank": 2147483647,
+      "statecode": 0,
+      "name": "RetrieveRowVersionPlugin",
+      "filteringattributes": null,
+      "sdkmessageprocessingstepid": "5c4a0000-0000-4000-8000-000000000339",
+      "mode": 0,
+      "modifiedon": "2026-04-02T06:58:28Z",
+      "sdkmessageid": {
+        "sdkmessageid": "5c4a0000-0000-4000-8000-000000000089",
+        "name": "Update"
+      }
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "@odata.context": "https://contoso.crm.dynamics.com/api/data/v9.2/$metadata#publishers(publisherid,uniquename,friendlyname,customizationprefix)",
+  "value": [
+    {
+      "friendlyname": "MicrosoftCorporation",
+      "publisherid": "5c4a0000-0000-4000-8000-000000000195",
+      "customizationprefix": "",
+      "uniquename": "MicrosoftCorporation"
+    },
+    {
+      "friendlyname": "Default Publisher for contoso",
+      "publisherid": "5c4a0000-0000-4000-8000-000000000196",
+      "customizationprefix": "new",
+      "uniquename": "DefaultPublishercontoso"
+    },
+    {
+      "friendlyname": "Microsoft First Party",
+      "publisherid": "5c4a0000-0000-4000-8000-000000000197",
+      "customizationprefix": "",
+      "uniquename": "microsoftfirstparty"
+    }
+  ]
+}

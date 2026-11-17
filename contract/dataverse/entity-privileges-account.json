@@ -1,0 +1,102 @@
+{
+  "@odata.context": "https://contoso.crm.dynamics.com/api/data/v9.2/$metadata#EntityDefinitions(Privileges)/$entity",
+  "MetadataId": "5c4a0000-0000-4000-8000-000000000295",
+  "Privileges": [
+    {
+      "CanBeBasic": true,
+      "CanBeDeep": true,
+      "CanBeGlobal": true,
+      "CanBeLocal": true,
+      "CanBeEntityReference": false,
+      "CanBeParentEntityReference": false,
+      "CanBeRecordFilter": false,
+      "Name": "prvCreateAccount",
+      "PrivilegeId": "5c4a0000-0000-4000-8000-000000000296",
+      "PrivilegeType": "Create"
+    },
+    {
+      "CanBeBasic": true,
+      "CanBeDeep": true,
+      "CanBeGlobal": true,
+      "CanBeLocal": true,
+      "CanBeEntityReference": false,
+      "CanBeParentEntityReference": false,
+      "CanBeRecordFilter": false,
+      "Name": "prvReadAccount",
+      "PrivilegeId": "5c4a0000-0000-4000-8000-000000000297",
+      "PrivilegeType": "Read"
+    },
+    {
+      "CanBeBasic": true,
+      "CanBeDeep": true,
+      "CanBeGlobal": true,
+      "CanBeLocal": true,
+      "CanBeEntityReference": false,
+      "CanBeParentEntityReference": false,
+      "CanBeRecordFilter": false,
+      "Name": "prvWriteAccount",
+      "PrivilegeId": "5c4a0000-0000-4000-8000-000000000298",
+      "PrivilegeType": "Write"
+    },
+    {
+      "CanBeBasic": true,
+      "CanBeDeep": true,
+      "CanBeGlobal": true,
+      "CanBeLocal": true,
+      "CanBeEntityReference": false,
+      "CanBeParentEntityReference": false,
+      "CanBeRecordFilter": false,
+      "Name": "prvDeleteAccount",
+      "PrivilegeId": "5c4a0000-0000-4000-8000-000000000299",
+      "PrivilegeType": "Delete"
+    },
+    {
+      "CanBeBasic": true,
+      "CanBeDeep": true,
+      "CanBeGlobal": true,
+      "CanBeLocal": true,
+      "CanBeEntityReference": false,
+      "CanBeParentEntityReference": false,
+      "CanBeRecordFilter": false,
+      "Name": "prvAssignAccount",
+      "PrivilegeId": "5c4a0000-0000-4000-8000-000000000300",
+      "PrivilegeType": "Assign"
+    },
+    {
+      "CanBeBasic": true,
+      "CanBeDeep": true,
+      "CanBeGlobal": true,
+      "CanBeLocal": true,
+      "CanBeEntityReference": false,
+      "CanBeParentEntityReference": false,
+      "CanBeRecordFilter": false,
+      "Name": "prvShareAccount",
+      "PrivilegeId": "5c4a0000-0000-4000-8000-000000000301",
+      "PrivilegeType": "Share"
+    },
+    {
+      "CanBeBasic": true,
+      "CanBeDeep": true,
+      "CanBeGlobal": true,
+      "CanBeLocal": true,
+      "CanBeEntityReference": false,
+      "CanBeParentEntityReference": false,
+      "CanBeRecordFilter": false,
+      "Name": "prvAppendAccount",
+      "PrivilegeId": "5c4a0000-0000-4000-8000-000000000302",
+      "PrivilegeType": "Append"
+    },
+    {
+      "CanBeBasic": true,
+      "CanBeDeep": true,
+      "CanBeGlobal": true,
+      "CanBeLocal": true,
+      "CanBeEntityReference": false,
+      "CanBeParentEntityReference": false,
+      "CanBeRecordFilter": false,
+      "Name": "prvAppendToAccount",
+      "PrivilegeId": "5c4a0000-0000-4000-8000-000000000303",
+      "PrivilegeType": "AppendTo"
+    }
+  ]
+}

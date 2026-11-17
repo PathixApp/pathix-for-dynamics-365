@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pathix for Dynamics 365: demo</title>
+    <link rel="stylesheet" href="demo.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Pathix™ for Dynamics 365: demo</h1>
+      <p class="lede">A sample account form with the extension's Lite cards. Rest the pointer on a field's label for a moment to open its card.</p>
+      <p class="note">Sample data, built into the extension. This page reads no Dynamics 365 environment and makes no network call. Pathix is not affiliated with Microsoft.</p>
+
+      <section id="demo-form" class="form" aria-label="Sample account form">
+        <h2>Account <span class="table">account</span></h2>
+        <div class="field" data-id="name-FieldSectionItemContainer" data-demo-control="name" data-demo-column="name">
+          <label for="f-name">Account Name</label>
+          <input id="f-name" value="Contoso Ltd (sample)" />
+        </div>
+        <div class="field" data-id="telephone1-FieldSectionItemContainer" data-demo-control="telephone1" data-demo-column="telephone1">
+          <label for="f-telephone1">Main Phone</label>
+          <input id="f-telephone1" value="555-0100" />
+        </div>
+        <div class="field" data-id="creditlimit-FieldSectionItemContainer" data-demo-control="creditlimit" data-demo-column="creditlimit">
+          <label for="f-creditlimit">Credit Limit</label>
+          <input id="f-creditlimit" value="$50,000.00" />
+        </div>
+        <div class="field" data-id="primarycontactid-FieldSectionItemContainer" data-demo-control="primarycontactid" data-demo-column="primarycontactid">
+          <label for="f-primarycontactid">Primary Contact</label>
+          <input id="f-primarycontactid" value="Sample Contact" />
+        </div>
+        <div class="field" data-id="address1_composite-FieldSectionItemContainer" data-demo-control="address1_composite" data-demo-column="address1_composite">
+          <label for="f-address1_composite">Address 1</label>
+          <input id="f-address1_composite" value="1 Sample Way" />
+        </div>
+        <div class="field locked" data-id="pathix_legalofficer-FieldSectionItemContainer" data-demo-control="pathix_legalofficer" data-demo-column="pathix_legalofficer" data-demo-locked="true">
+          <label for="f-pathix_legalofficer">Legal Officer <span class="lock" aria-label="Read-only" title="Read-only">🔒</span></label>
+          <input id="f-pathix_legalofficer" value="Sample Officer" readonly />
+        </div>
+        <p id="edits" class="hint" role="status">Type in a field to see what your unsaved edits are registered to fire.</p>
+      </section>
+
+      <section class="about">
+        <h2>What to try</h2>
+        <ul>
+          <li><strong>Credit Limit:</strong> the steps registered to fire when it changes, grouped by stage and mode, with steps from Microsoft publishers folded away.</li>
+          <li><strong>Address 1:</strong> a classic workflow whose trigger names the column.</li>
+          <li><strong>Legal Officer:</strong> locked on this form. Its card opens on "Why can't I edit this field?".</li>
+          <li><strong>Dependencies</strong> tab: what Dataverse tracks as depending on the column.</li>
+        </ul>
+        <p class="hint">Connected cards and X-ray need your organization's Pathix. Set it up in the <button id="open-options" type="button" class="link">extension's options</button>.</p>
+      </section>
+    </main>
+    <script src="demo.js"></script>
+  </body>
+</html>

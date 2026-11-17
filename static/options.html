@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pathix for Dynamics 365: options</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Pathix for Dynamics 365</h1>
+      <p class="lede">The extension explains the fields on the Dynamics 365 forms you open. It reads only the names of tables and columns, never their values.</p>
+      <p class="lede">Without a Pathix address it runs in Lite: cards read Dataverse metadata as you and show what is registered or declared. With your organization's Pathix address, cards show what Pathix found actually writes each field.</p>
+      <p id="mode-status" class="status" role="status"></p>
+
+      <form id="settings" novalidate>
+        <label for="pathix-url">Pathix address</label>
+        <input id="pathix-url" name="pathix-url" type="url" placeholder="https://pathix.contoso.com" autocomplete="url" required />
+        <p class="hint">The address you open Pathix at in your browser.</p>
+
+        <div class="actions">
+          <button type="submit">Save and connect</button>
+          <button id="remove-address" type="button" class="secondary">Remove address</button>
+        </div>
+        <p id="settings-status" class="status" role="status"></p>
+      </form>
+
+      <section aria-labelledby="account-heading">
+        <h2 id="account-heading">Account</h2>
+        <p id="account-status" class="status" role="status">Checking…</p>
+        <div id="sign-in-trust" hidden>
+          <p class="hint">Check these before you sign in. Signing in lets this Pathix address read Pathix as you, with your Microsoft Entra account.</p>
+          <dl id="sign-in-trust-list" class="trust"></dl>
+        </div>
+        <div class="actions">
+          <button id="sign-in" type="button">Sign in</button>
+          <button id="sign-out" type="button" class="secondary">Sign out</button>
+        </div>
+      </section>
+
+      <section aria-labelledby="tips-heading">
+        <h2 id="tips-heading">Tips</h2>
+        <div class="check">
+          <input id="hide-tips" type="checkbox" />
+          <label for="hide-tips">Don't show tips</label>
+        </div>
+        <p class="hint">Lite cards end with one line naming what they cannot see.</p>
+        <p id="tips-policy" class="hint" hidden>Your organization turned tips off.</p>
+      </section>
+
+      <section aria-labelledby="admin-heading">
+        <h2 id="admin-heading">Power Platform admin center</h2>
+        <div class="check">
+          <input id="admin-overlay" type="checkbox" />
+          <label for="admin-overlay">Show Pathix in the admin center</label>
+        </div>
+        <p class="hint">Adds who holds a security role, and the findings that name it, to the role pages. Adds a count to each role in the role list and a chip to each application user. It needs your Pathix address and a sign-in.</p>
+        <p class="hint">Turning it on asks the browser for access to admin.powerplatform.microsoft.com and nothing else. The extension reads only the ids in the page address and the Application IDs in the application user grid. It reads no names, emails, tokens or cookies, and the page itself makes no network calls. Reload open admin center tabs after you change this.</p>
+        <p id="admin-status" class="status" role="status"></p>
+      </section>
+
+      <section aria-labelledby="demo-heading">
+        <h2 id="demo-heading">Demo</h2>
+        <p class="hint">Try the cards on a sample form, with sample data built into the extension. It reads no environment.</p>
+        <p><a id="open-demo" href="demo.html" target="_blank" rel="noopener">Open the demo</a></p>
+      </section>
+
+      <footer>
+        <p class="hint">Pathix™ for Dynamics 365. Not affiliated with Microsoft.</p>
+      </footer>
+    </main>
+    <script src="options.js"></script>
+  </body>
+</html>

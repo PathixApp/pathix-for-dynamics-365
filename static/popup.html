@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pathix for Dynamics 365</title>
+    <link rel="stylesheet" href="options.css" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body class="popup">
+    <main>
+      <h1>Pathix™ for Dynamics 365</h1>
+
+      <section aria-labelledby="connection-heading" class="connection">
+        <h2 id="connection-heading" class="visually-hidden">Connection</h2>
+        <p id="connection-heading-text" class="connection-heading" role="status">Checking this tab…</p>
+        <p id="connection-detail" class="hint" hidden></p>
+        <button id="fix-in-options" type="button" class="secondary" hidden>Open options</button>
+      </section>
+
+      <section aria-labelledby="form-heading">
+        <h2 id="form-heading">This form</h2>
+        <p id="form-note" class="hint" hidden></p>
+        <div class="switch-row">
+          <span class="text">
+            <span id="xray-label" class="label">X-ray</span>
+            <span id="xray-shortcut" class="shortcut"></span>
+          </span>
+          <button id="xray" type="button" role="switch" aria-checked="false" aria-labelledby="xray-label" disabled>
+            <span class="track" aria-hidden="true"><span class="thumb"></span></span>
+          </button>
+        </div>
+        <div class="feature-list">
+          <button type="button" class="feature" data-command="openEventMap" disabled></button>
+          <button type="button" class="feature" data-command="openWhatChanged" disabled></button>
+          <button type="button" class="feature" data-command="openSavePreview" disabled></button>
+          <button type="button" class="feature" data-command="openFieldCard" disabled></button>
+        </div>
+        <p class="hint shortcuts-line"><button id="shortcut-settings" type="button" class="link">Change keyboard shortcuts</button> in the browser's settings.</p>
+        <p id="command-status" class="status" role="status"></p>
+      </section>
+
+      <section aria-labelledby="admin-heading">
+        <h2 id="admin-heading">Power Platform admin center overlay</h2>
+        <div class="switch-row">
+          <span class="text">
+            <span id="admin-label" class="label">Show Pathix in the admin center</span>
+          </span>
+          <button id="admin-overlay" type="button" role="switch" aria-checked="false" aria-labelledby="admin-label" aria-describedby="admin-status">
+            <span class="track" aria-hidden="true"><span class="thumb"></span></span>
+          </button>
+        </div>
+        <p id="admin-status" class="status" role="status"></p>
+      </section>
+
+      <nav class="links" aria-label="More">
+        <button id="open-options" type="button" class="link">Options</button>
+        <button id="open-demo" type="button" class="link">Open demo</button>
+      </nav>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

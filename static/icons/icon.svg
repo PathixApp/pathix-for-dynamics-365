@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <title>Pathix</title>
+  <rect x="2" y="2" width="124" height="124" rx="28" fill="#11161c"/>
+  <g fill="none" stroke="#ffffff" stroke-width="11">
+    <line x1="39.19" y1="88.81" x2="64" y2="64"/>
+    <line x1="88.81" y1="39.19" x2="64" y2="64"/>
+    <circle cx="30" cy="98" r="13"/>
+    <circle cx="98" cy="30" r="13"/>
+  </g>
+  <circle cx="64" cy="64" r="19" fill="#0078d4"/>
+</svg>

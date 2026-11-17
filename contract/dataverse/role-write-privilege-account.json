@@ -1,0 +1,11 @@
+{
+  "@odata.context": "https://contoso.crm.dynamics.com/api/data/v9.2/$metadata#roleprivilegescollection(roleid,privilegeid,privilegedepthmask)",
+  "value": [
+    {
+      "privilegeid": "5c4a0000-0000-4000-8000-000000000298",
+      "roleid": "5c4a0000-0000-4000-8000-000000000313",
+      "privilegedepthmask": 4,
+      "roleprivilegeid": "5c4a0000-0000-4000-8000-000000000316"
+    }
+  ]
+}

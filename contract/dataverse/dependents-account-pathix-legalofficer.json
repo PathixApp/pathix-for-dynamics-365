@@ -1,0 +1,20 @@
+{
+  "_standIn": "Hand-written stand-in, not a captured response. Its rows match a live RetrieveDependentComponents call for account.pathix_legalofficer in a development environment on 2026-11-12: two dependents, the Account main form (the form in forms-account-main.json, so it keeps that form's synthetic id) and the lookup's relationship (synthetic id). Capture it with scripts/capture-dataverse-fixtures.mjs (query dependents-account-pathix-legalofficer in queries.json) and the capture overwrites this file.",
+  "@odata.context": "https://contoso.crm.dynamics.com/api/data/v9.2/$metadata#dependencies",
+  "value": [
+    {
+      "dependentcomponenttype": 60,
+      "dependentcomponentobjectid": "5c4a0000-0000-4000-8000-000000000021",
+      "dependentcomponentparentid": "00000000-0000-0000-0000-000000000000",
+      "dependencytype": 2,
+      "requiredcomponentobjectid": "5c4a0000-0000-4000-8000-000000000404"
+    },
+    {
+      "dependentcomponenttype": 10,
+      "dependentcomponentobjectid": "5c4a0000-0000-4000-8000-000000000405",
+      "dependentcomponentparentid": "00000000-0000-0000-0000-000000000000",
+      "dependencytype": 2,
+      "requiredcomponentobjectid": "5c4a0000-0000-4000-8000-000000000404"
+    }
+  ]
+}

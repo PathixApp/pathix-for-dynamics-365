@@ -1,0 +1,59 @@
+{
+  "@odata.context": "https://contoso.crm.dynamics.com/api/data/v9.2/$metadata#systemforms(formid,publishedon)",
+  "value": [
+    {
+      "type": 9,
+      "objecttypecode": "appointment",
+      "formid": "5c4a0000-0000-4000-8000-000000000058",
+      "publishedon": "2026-04-02T06:55:22Z"
+    },
+    {
+      "type": 11,
+      "objecttypecode": "account",
+      "formid": "5c4a0000-0000-4000-8000-000000000033",
+      "publishedon": "2026-04-02T11:10:53Z"
+    },
+    {
+      "type": 9,
+      "objecttypecode": "contact",
+      "formid": "5c4a0000-0000-4000-8000-000000000029",
+      "publishedon": "2026-04-02T11:10:55Z"
+    },
+    {
+      "type": 6,
+      "objecttypecode": "account",
+      "formid": "5c4a0000-0000-4000-8000-000000000038",
+      "publishedon": "2026-04-02T11:17:44Z"
+    },
+    {
+      "type": 2,
+      "objecttypecode": "account",
+      "formid": "5c4a0000-0000-4000-8000-000000000019",
+      "publishedon": "2026-09-16T23:13:50Z"
+    },
+    {
+      "type": 6,
+      "objecttypecode": "account",
+      "formid": "5c4a0000-0000-4000-8000-000000000065",
+      "publishedon": "2026-04-02T11:10:50Z"
+    },
+    {
+      "type": 2,
+      "objecttypecode": "account",
+      "formid": "5c4a0000-0000-4000-8000-000000000045",
+      "publishedon": "2026-09-16T23:02:02Z"
+    },
+    {
+      "type": 7,
+      "objecttypecode": "account",
+      "formid": "5c4a0000-0000-4000-8000-000000000041",
+      "publishedon": "2026-04-02T11:17:51Z"
+    },
+    {
+      "type": 2,
+      "objecttypecode": "account",
+      "formid": "5c4a0000-0000-4000-8000-000000000021",
+      "publishedon": "2026-10-04T01:12:57Z"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "name": "pathix-browser-extension",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Explains Dynamics 365 model-driven app forms in context, from Dataverse metadata and, when connected, from Pathix. See DESIGN.md.",
+  "license": "Apache-2.0",
+  "author": "Pathix L.L.C.",
+  "homepage": "https://pathix.app/extension",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "watch": "node build.mjs --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "smoke": "playwright test",
+    "icons": "node scripts/render-icons.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@types/chrome": "^0.3.4",
+    "@types/node": "^20.19.43",
+    "esbuild": "^0.28.2",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.11"
+  },
+  "overrides": {
+    "vite": "8.1.3"
+  }
+}

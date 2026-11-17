@@ -1,0 +1,33 @@
+{
+  "@odata.context": "https://contoso.crm.dynamics.com/api/data/v9.2/$metadata#fieldsecurityprofiles(fieldsecurityprofileid,name)",
+  "value": [
+    {
+      "name": "Local Identity Credentials",
+      "fieldsecurityprofileid": "5c4a0000-0000-4000-8000-000000000200"
+    },
+    {
+      "name": "System Administrator",
+      "fieldsecurityprofileid": "5c4a0000-0000-4000-8000-000000000201"
+    },
+    {
+      "name": "Integrated Search Provider Profile",
+      "fieldsecurityprofileid": "5c4a0000-0000-4000-8000-000000000202"
+    },
+    {
+      "name": "sim Bank Ops",
+      "fieldsecurityprofileid": "5c4a0000-0000-4000-8000-000000000203"
+    },
+    {
+      "name": "sim Permit Staff",
+      "fieldsecurityprofileid": "5c4a0000-0000-4000-8000-000000000204"
+    },
+    {
+      "name": "sim_Offboarding Profile",
+      "fieldsecurityprofileid": "5c4a0000-0000-4000-8000-000000000205"
+    },
+    {
+      "name": "sim Permit Intake Service",
+      "fieldsecurityprofileid": "5c4a0000-0000-4000-8000-000000000206"
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+:root {
+  --bg: #f3f4f6;
+  --panel: #ffffff;
+  --fg: #11161c;
+  --muted: #4a5560;
+  --border: #d0d7de;
+  --accent: #0060aa;
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 14px/1.5 "Segoe UI", system-ui, sans-serif;
+}
+
+main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 22px;
+}
+
+h2 {
+  margin: 0 0 12px;
+  font-size: 16px;
+}
+
+.lede {
+  margin: 0 0 4px;
+}
+
+.note,
+.hint {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.form,
+.about {
+  margin-top: 16px;
+  padding: 16px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.table {
+  margin-left: 6px;
+  color: var(--muted);
+  font: 12px "Cascadia Mono", Consolas, monospace;
+}
+
+.field {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 0;
+  border-bottom: 1px solid #eef0f2;
+}
+
+.field label {
+  color: var(--muted);
+  cursor: help;
+}
+
+.field input {
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font: inherit;
+}
+
+.field.locked input {
+  background: #f3f4f6;
+  color: var(--muted);
+}
+
+.lock {
+  font-size: 11px;
+}
+
+.link {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font: inherit;
+  cursor: pointer;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 520px) {
+  .field {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}

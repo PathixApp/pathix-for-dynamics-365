@@ -1,0 +1,159 @@
+{
+  "@odata.context": "https://contoso.crm.dynamics.com/api/data/v9.2/$metadata#dependencies",
+  "value": [
+    {
+      "dependentcomponenttype": 26,
+      "dependentcomponentobjectid": "5c4a0000-0000-4000-8000-000000000010",
+      "dependentcomponentparentid": "00000000-0000-0000-0000-000000000000",
+      "dependencytype": 2,
+      "requiredcomponentobjectid": "5c4a0000-0000-4000-8000-000000000007"
+    },
+    {
+      "dependentcomponenttype": 26,
+      "dependentcomponentobjectid": "5c4a0000-0000-4000-8000-000000000012",
+      "dependentcomponentparentid": "00000000-0000-0000-0000-000000000000",
+      "dependencytype": 2,
+      "requiredcomponentobjectid": "5c4a0000-0000-4000-8000-000000000007"
+    },
+    {
+      "dependentcomponenttype": 60,
+      "dependentcomponentobjectid": "5c4a0000-0000-4000-8000-000000000019",
+      "dependentcomponentparentid": "00000000-0000-0000-0000-000000000000",
+      "dependencytype": 2,
+      "requiredcomponentobjectid": "5c4a0000-0000-4000-8000-000000000007"
+    },
+    {
+      "dependentcomponenttype": 26,
+      "dependentcomponentobjectid": "5c4a0000-0000-4000-8000-000000000020",
+      "dependentcomponentparentid": "00000000-0000-0000-0000-000000000000",
+      "dependencytype": 2,
+      "requiredcomponentobjectid": "5c4a0000-0000-4000-8000-000000000007"
+    },
+    {
+      "dependentcomponenttype": 60,
+      "dependentcomponentobjectid": "5c4a0000-0000-4000-8000-000000000021",
+      "dependentcomponentparentid": "00000000-0000-0000-0000-000000000000",
+      "dependencytype": 2,
+      "requiredcomponentobjectid": "5c4a0000-0000-4000-8000-000000000007"
+    },
+    {
+      "dependentcomponenttype": 26,
+      "dependentcomponentobjectid": "5c4a0000-0000-4000-8000-000000000027",
+      "dependentcomponentparentid": "00000000-0000-0000-0000-000000000000",
+      "dependencytype": 2,
+      "requiredcomponentobjectid": "5c4a0000-0000-4000-8000-000000000007"
+    },
+    {
+      "dependentcomponenttype": 26,
+      "dependentcomponentobjectid": "5c4a0000-0000-4000-8000-000000000030",
+      "dependentcomponentparentid": "00000000-0000-0000-0000-000000000000",
+      "dependencytype": 2,
+      "requiredcomponentobjectid": "5c4a0000-0000-4000-8000-000000000007"
+    },
+    {
+      "dependentcomponenttype": 60,
+      "dependentcomponentobjectid": "5c4a0000-0000-4000-8000-000000000033",
+      "dependentcomponentparentid": "00000000-0000-0000-0000-000000000000",
+      "dependencytype": 2,
+      "requiredcomponentobjectid": "5c4a0000-0000-4000-8000-000000000007"
+    },
+    {
+      "dependentcomponenttype": 26,
+      "dependentcomponentobjectid": "5c4a0000-0000-4000-8000-000000000034",
+      "dependentcomponentparentid": "00000000-0000-0000-0000-000000000000",
+      "dependencytype": 2,
+      "requiredcomponentobjectid": "5c4a0000-0000-4000-8000-000000000007"
+    },
+    {
+      "dependentcomponenttype": 29,
+      "dependentcomponentobjectid": "5c4a0000-0000-4000-8000-000000000035",
+      "dependentcomponentparentid": "00000000-0000-0000-0000-000000000000",
+      "dependencytype": 2,
+      "requiredcomponentobjectid": "5c4a0000-0000-4000-8000-000000000007"
+    },
+    {
+      "dependentcomponenttype": 26,
+      "dependentcomponentobjectid": "5c4a0000-0000-4000-8000-000000000036",
+      "dependentcomponentparentid": "00000000-0000-0000-0000-000000000000",
+      "dependencytype": 2,
+      "requiredcomponentobjectid": "5c4a0000-0000-4000-8000-000000000007"
+    },
+    {
+      "dependentcomponenttype": 60,
+      "dependentcomponentobjectid": "5c4a0000-0000-4000-8000-000000000038",
+      "dependentcomponentparentid": "00000000-0000-0000-0000-000000000000",
+      "dependencytype": 2,
+      "requiredcomponentobjectid": "5c4a0000-0000-4000-8000-000000000007"
+    },
+    {
+      "dependentcomponenttype": 26,
+      "dependentcomponentobjectid": "5c4a0000-0000-4000-8000-000000000040",
+      "dependentcomponentparentid": "00000000-0000-0000-0000-000000000000",
+      "dependencytype": 2,
+      "requiredcomponentobjectid": "5c4a0000-0000-4000-8000-000000000007"
+    },
+    {
+      "dependentcomponenttype": 60,
+      "dependentcomponentobjectid": "5c4a0000-0000-4000-8000-000000000041",
+      "dependentcomponentparentid": "00000000-0000-0000-0000-000000000000",
+      "dependencytype": 2,
+      "requiredcomponentobjectid": "5c4a0000-0000-4000-8000-000000000007"
+    },
+    {
+      "dependentcomponenttype": 26,
+      "dependentcomponentobjectid": "5c4a0000-0000-4000-8000-000000000043",
+      "dependentcomponentparentid": "00000000-0000-0000-0000-000000000000",
+      "dependencytype": 2,
+      "requiredcomponentobjectid": "5c4a0000-0000-4000-8000-000000000007"
+    },
+    {
+      "dependentcomponenttype": 26,
+      "dependentcomponentobjectid": "5c4a0000-0000-4000-8000-000000000044",
+      "dependentcomponentparentid": "00000000-0000-0000-0000-000000000000",
+      "dependencytype": 2,
+      "requiredcomponentobjectid": "5c4a0000-0000-4000-8000-000000000007"
+    },
+    {
+      "dependentcomponenttype": 60,
+      "dependentcomponentobjectid": "5c4a0000-0000-4000-8000-000000000075",
+      "dependentcomponentparentid": "00000000-0000-0000-0000-000000000000",
+      "dependencytype": 2,
+      "requiredcomponentobjectid": "5c4a0000-0000-4000-8000-000000000007"
+    },
+    {
+      "dependentcomponenttype": 60,
+      "dependentcomponentobjectid": "5c4a0000-0000-4000-8000-000000000045",
+      "dependentcomponentparentid": "00000000-0000-0000-0000-000000000000",
+      "dependencytype": 2,
+      "requiredcomponentobjectid": "5c4a0000-0000-4000-8000-000000000007"
+    },
+    {
+      "dependentcomponenttype": 26,
+      "dependentcomponentobjectid": "5c4a0000-0000-4000-8000-000000000050",
+      "dependentcomponentparentid": "00000000-0000-0000-0000-000000000000",
+      "dependencytype": 2,
+      "requiredcomponentobjectid": "5c4a0000-0000-4000-8000-000000000007"
+    },
+    {
+      "dependentcomponenttype": 26,
+      "dependentcomponentobjectid": "5c4a0000-0000-4000-8000-000000000057",
+      "dependentcomponentparentid": "00000000-0000-0000-0000-000000000000",
+      "dependencytype": 2,
+      "requiredcomponentobjectid": "5c4a0000-0000-4000-8000-000000000007"
+    },
+    {
+      "dependentcomponenttype": 60,
+      "dependentcomponentobjectid": "5c4a0000-0000-4000-8000-000000000058",
+      "dependentcomponentparentid": "00000000-0000-0000-0000-000000000000",
+      "dependencytype": 2,
+      "requiredcomponentobjectid": "5c4a0000-0000-4000-8000-000000000007"
+    },
+    {
+      "dependentcomponenttype": 26,
+      "dependentcomponentobjectid": "5c4a0000-0000-4000-8000-000000000062",
+      "dependentcomponentparentid": "00000000-0000-0000-0000-000000000000",
+      "dependencytype": 2,
+      "requiredcomponentobjectid": "5c4a0000-0000-4000-8000-000000000007"
+    }
+  ]
+}

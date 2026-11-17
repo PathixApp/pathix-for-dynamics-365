@@ -1,0 +1,13 @@
+{
+  "@odata.context": "https://contoso.crm.dynamics.com/api/data/v9.2/$metadata#Microsoft.Dynamics.CRM.RetrieveUserSetOfPrivilegesByNamesResponse",
+  "RolePrivileges": [
+    {
+      "Depth": "Global",
+      "PrivilegeId": "5c4a0000-0000-4000-8000-000000000298",
+      "BusinessUnitId": "5c4a0000-0000-4000-8000-000000000001",
+      "PrivilegeName": "prvWriteAccount",
+      "RecordFilterId": "00000000-0000-0000-0000-000000000000",
+      "RecordFilterUniqueName": ""
+    }
+  ]
+}

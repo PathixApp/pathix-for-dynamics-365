@@ -1,0 +1,7 @@
+{
+  "@odata.context": "https://contoso.crm.dynamics.com/api/data/v9.2/$metadata#EntityDefinitions(5c4a0000-0000-4000-8000-000000000016)/Attributes/Microsoft.Dynamics.CRM.LookupAttributeMetadata(LogicalName,EntityLogicalName)/$entity",
+  "@odata.type": "#Microsoft.Dynamics.CRM.LookupAttributeMetadata",
+  "MetadataId": "5c4a0000-0000-4000-8000-000000000015",
+  "EntityLogicalName": "customerrelationship",
+  "LogicalName": "customerid"
+}

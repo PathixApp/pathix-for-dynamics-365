@@ -1,0 +1,54 @@
+{
+  "@odata.context": "https://contoso.crm.dynamics.com/api/data/v9.2/$metadata#solutions(solutionid,uniquename,friendlyname,ismanaged,_publisherid_value)",
+  "value": [
+    {
+      "solutionid": "5c4a0000-0000-4000-8000-000000000077",
+      "_publisherid_value": "5c4a0000-0000-4000-8000-000000000195",
+      "uniquename": "System",
+      "ismanaged": true,
+      "friendlyname": "System Solution"
+    },
+    {
+      "solutionid": "5c4a0000-0000-4000-8000-000000000084",
+      "_publisherid_value": "5c4a0000-0000-4000-8000-000000000196",
+      "uniquename": "Active",
+      "ismanaged": false,
+      "friendlyname": "Active Solution"
+    },
+    {
+      "solutionid": "5c4a0000-0000-4000-8000-000000000158",
+      "_publisherid_value": "5c4a0000-0000-4000-8000-000000000195",
+      "uniquename": "Basic",
+      "ismanaged": false,
+      "friendlyname": "Basic Solution"
+    },
+    {
+      "solutionid": "5c4a0000-0000-4000-8000-000000000134",
+      "_publisherid_value": "5c4a0000-0000-4000-8000-000000000195",
+      "uniquename": "msft_ContactAndAccount_Extensions",
+      "ismanaged": true,
+      "friendlyname": "msft_ContactAndAccount_Extensions"
+    },
+    {
+      "solutionid": "5c4a0000-0000-4000-8000-000000000138",
+      "_publisherid_value": "5c4a0000-0000-4000-8000-000000000197",
+      "uniquename": "msft_DataArchivalBaseComponents",
+      "ismanaged": true,
+      "friendlyname": "Retention Base Components"
+    },
+    {
+      "solutionid": "5c4a0000-0000-4000-8000-000000000145",
+      "_publisherid_value": "5c4a0000-0000-4000-8000-000000000195",
+      "uniquename": "msft_ActivitiesInfra_Extensions",
+      "ismanaged": true,
+      "friendlyname": "msft_ActivitiesInfra_Extensions"
+    },
+    {
+      "solutionid": "5c4a0000-0000-4000-8000-000000000192",
+      "_publisherid_value": "5c4a0000-0000-4000-8000-000000000195",
+      "uniquename": "msdynce_AppCommon",
+      "ismanaged": true,
+      "friendlyname": "Application Common"
+    }
+  ]
+}

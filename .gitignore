@@ -1,0 +1,9 @@
+dist/
+# Release zips, built by .github/workflows/release.yml.
+pathix-extension-*.zip
+# The dev extension key that fixes the extension ID. Never committed; build.mjs injects it.
+manifest.key.local.json
+node_modules/
+# Playwright smoke test output.
+test-results/
+playwright-report/

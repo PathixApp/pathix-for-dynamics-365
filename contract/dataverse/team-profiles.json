@@ -1,0 +1,4 @@
+{
+  "@odata.context": "https://contoso.crm.dynamics.com/api/data/v9.2/$metadata#teamprofilescollection(teamid,fieldsecurityprofileid)",
+  "value": []
+}

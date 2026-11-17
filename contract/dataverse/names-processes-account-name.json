@@ -1,0 +1,35 @@
+{
+  "@odata.context": "https://contoso.crm.dynamics.com/api/data/v9.2/$metadata#workflows(workflowid,name,category)",
+  "value": [
+    {
+      "workflowid": "5c4a0000-0000-4000-8000-000000000069",
+      "name": "Account - On Update - Random",
+      "category": 0
+    },
+    {
+      "workflowid": "5c4a0000-0000-4000-8000-000000000035",
+      "name": "Workflow with Child",
+      "category": 0
+    },
+    {
+      "workflowid": "5c4a0000-0000-4000-8000-000000000063",
+      "name": "Child Workflow",
+      "category": 0
+    },
+    {
+      "workflowid": "5c4a0000-0000-4000-8000-000000000028",
+      "name": "Action Test",
+      "category": 3
+    },
+    {
+      "workflowid": "5c4a0000-0000-4000-8000-000000000046",
+      "name": "Account - On Create - Set Fields",
+      "category": 0
+    },
+    {
+      "workflowid": "5c4a0000-0000-4000-8000-000000000068",
+      "name": "Account Dialog",
+      "category": 1
+    }
+  ]
+}

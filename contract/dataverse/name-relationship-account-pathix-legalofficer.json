@@ -1,0 +1,7 @@
+{
+  "_standIn": "Hand-written stand-in, not a captured response. Its schema name matches a live read in a development environment on 2026-11-12 of the relationship that depends on account.pathix_legalofficer; its MetadataId is the synthetic id in dependents-account-pathix-legalofficer.json. Capture it with scripts/capture-dataverse-fixtures.mjs (query name-relationship-account-pathix-legalofficer in queries.json) and the capture overwrites this file.",
+  "@odata.context": "https://contoso.crm.dynamics.com/api/data/v9.2/$metadata#RelationshipDefinitions/Microsoft.Dynamics.CRM.OneToManyRelationshipMetadata(SchemaName)/$entity",
+  "@odata.type": "#Microsoft.Dynamics.CRM.OneToManyRelationshipMetadata",
+  "MetadataId": "5c4a0000-0000-4000-8000-000000000405",
+  "SchemaName": "pathix_account_LegalOfficer_contact"
+}

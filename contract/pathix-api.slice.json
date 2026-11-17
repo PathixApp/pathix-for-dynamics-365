@@ -1,0 +1,5462 @@
+{
+  "openapi": "3.1.1",
+  "info": {
+    "title": "Pathix.Api | v1",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost/"
+    }
+  ],
+  "paths": {
+    "/config": {
+      "get": {
+        "tags": [
+          "ConfigEndpoint"
+        ],
+        "operationId": "RuntimeConfig",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RuntimeConfigResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/environments": {
+      "get": {
+        "tags": [
+          "EnvironmentsEndpoints"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EnvironmentResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/scans": {
+      "get": {
+        "tags": [
+          "ScansEndpoints"
+        ],
+        "parameters": [
+          {
+            "name": "environmentId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ScanSummaryResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/findings/field-writers": {
+      "get": {
+        "tags": [
+          "FindingsEndpoints"
+        ],
+        "parameters": [
+          {
+            "name": "table",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "column",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "environmentId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "excludeAiDerived",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "showDismissed",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FieldWriterResponse"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/findings/field-dependents": {
+      "get": {
+        "tags": [
+          "FindingsEndpoints"
+        ],
+        "parameters": [
+          {
+            "name": "table",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "column",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "environmentId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "excludeAiDerived",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "showDismissed",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FieldDependentsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/findings/field-permissions": {
+      "get": {
+        "tags": [
+          "FindingsEndpoints"
+        ],
+        "parameters": [
+          {
+            "name": "table",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "column",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "environmentId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FieldPermissionsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/findings/security-writers": {
+      "get": {
+        "tags": [
+          "FindingsEndpoints"
+        ],
+        "parameters": [
+          {
+            "name": "table",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "environmentId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SecurityWritersResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/findings/open-counts": {
+      "get": {
+        "tags": [
+          "FindingsEndpoints"
+        ],
+        "parameters": [
+          {
+            "name": "fieldKey",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "componentId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          },
+          {
+            "name": "roleId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          },
+          {
+            "name": "environmentId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OpenFindingCountsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/components/{id}": {
+      "get": {
+        "tags": [
+          "ComponentsEndpoints"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "excludeAiDerived",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "showDismissed",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "environmentId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "componentType",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/ComponentType"
+            }
+          },
+          {
+            "name": "sourceId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComponentDetailResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/changes": {
+      "get": {
+        "tags": [
+          "ChangesEndpoints"
+        ],
+        "parameters": [
+          {
+            "name": "environmentId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "kind",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ScanDeltaKind"
+              }
+            }
+          },
+          {
+            "name": "subjectKind",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/ScanDeltaSubjectKind"
+            }
+          },
+          {
+            "name": "pinnedOnly",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "scanId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "findingType",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/FindingType"
+              }
+            }
+          },
+          {
+            "name": "severity",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/FindingSeverity"
+              }
+            }
+          },
+          {
+            "name": "table",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lens",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/ChangeLens"
+            }
+          },
+          {
+            "name": "includeSystemNoise",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          },
+          {
+            "name": "includePathixChanges",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnvironmentChangesResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/changes/field": {
+      "get": {
+        "tags": [
+          "ChangesEndpoints"
+        ],
+        "parameters": [
+          {
+            "name": "table",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "column",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "environmentId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FieldHistoryResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/environments/{id}/forms/{formId}/handlers": {
+      "get": {
+        "tags": [
+          "FormHandlersEndpoints"
+        ],
+        "summary": "Lists the script handlers a form registers, in formxml order.",
+        "description": "Read from the environment's latest completed scan. formId is the systemform id. A form that scan did not capture returns 404. formName and table are the form's name and the logical name of its table on that scan, present whatever the coverage. A captured form with no handlers returns coverage modeled and an empty handlers list. When Pathix cannot say what the form registers, coverage is notModeled, notModeledReason says why and handlers is null, which is never the same answer as an empty list: handlersNotRecorded means the scan holds no handler rows for any form (a scan taken before handlers were captured, or an environment with none), and formNotParsed means the form's formxml could not be read. Each handler carries its event, what the event belongs to (scope Form, Tab or Control, and the tab name or control id in scopeName), the column an onchange is attached to, the function, the library the form names, and the script component the library resolved to (null when it resolved to none). A null flag means the formxml did not say. isPlatformLoaded handlers are tagged, never hidden. ordered is true when every handler carries its position in the formxml and the list is in that order. On a scan that predates the position, ordered is false and the list is a stable sort by scope, scope name, event, library and function, which must not be read as a sequence; the next scan restores the order.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "formId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FormHandlersResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/roles": {
+      "get": {
+        "tags": [
+          "RolesEndpoints"
+        ],
+        "parameters": [
+          {
+            "name": "environmentId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleSummaryResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/principals/by-app-id": {
+      "get": {
+        "tags": [
+          "PrincipalsEndpoints"
+        ],
+        "parameters": [
+          {
+            "name": "appId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          },
+          {
+            "name": "environmentId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrincipalAppIdLookupResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tables/{logicalName}/save-pipeline": {
+      "get": {
+        "tags": [
+          "TablesEndpoints"
+        ],
+        "parameters": [
+          {
+            "name": "logicalName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "environmentId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "message",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "columns",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "formId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SavePipelineResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ActionExtensionSummary": {
+        "required": [
+          "steps",
+          "total"
+        ],
+        "type": "object",
+        "properties": {
+          "steps": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExtensionStepSummary"
+            }
+          },
+          "total": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "ActionType": {
+        "enum": [
+          "Create",
+          "Update",
+          "Delete",
+          "Read",
+          "Send",
+          "Assign",
+          "Share",
+          "Custom"
+        ]
+      },
+      "AiEstateExposureGrain": {
+        "enum": [
+          "Column",
+          "Table"
+        ]
+      },
+      "AiPromptColumnModelLink": {
+        "required": [
+          "componentId",
+          "name",
+          "sourceId"
+        ],
+        "type": "object",
+        "properties": {
+          "componentId": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uuid"
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "sourceId": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uuid"
+          }
+        }
+      },
+      "AiPromptColumnSummary": {
+        "required": [
+          "columnLogicalName",
+          "codeInterpreterEnabled",
+          "recordRetrievalLimit",
+          "modelType",
+          "groundingQueryPresent",
+          "configurationUnavailable",
+          "configurationNotRead",
+          "model"
+        ],
+        "type": "object",
+        "properties": {
+          "columnLogicalName": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "codeInterpreterEnabled": {
+            "type": "boolean"
+          },
+          "recordRetrievalLimit": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int32"
+          },
+          "modelType": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "groundingQueryPresent": {
+            "type": "boolean"
+          },
+          "configurationUnavailable": {
+            "type": "boolean"
+          },
+          "configurationNotRead": {
+            "type": "boolean"
+          },
+          "model": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/AiPromptColumnModelLink"
+              }
+            ]
+          }
+        }
+      },
+      "AzureAdRuntimeConfig": {
+        "required": [
+          "clientId",
+          "tenantId",
+          "authority",
+          "apiScope"
+        ],
+        "type": "object",
+        "properties": {
+          "clientId": {
+            "type": "string"
+          },
+          "tenantId": {
+            "type": "string"
+          },
+          "authority": {
+            "type": "string"
+          },
+          "apiScope": {
+            "type": "string"
+          }
+        }
+      },
+      "BoundFlowSummary": {
+        "required": [
+          "componentId",
+          "name",
+          "isSystem"
+        ],
+        "type": "object",
+        "properties": {
+          "componentId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string"
+          },
+          "isSystem": {
+            "type": "boolean"
+          }
+        }
+      },
+      "BrandingResponse": {
+        "required": [
+          "displayName",
+          "logoDataUri",
+          "accentColorHex",
+          "accentForeground",
+          "footerLine",
+          "showPathixAttribution",
+          "isDarkMode",
+          "isBuiltIn"
+        ],
+        "type": "object",
+        "properties": {
+          "displayName": {
+            "type": "string"
+          },
+          "logoDataUri": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "accentColorHex": {
+            "type": "string"
+          },
+          "accentForeground": {
+            "type": "string"
+          },
+          "footerLine": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "showPathixAttribution": {
+            "type": "boolean"
+          },
+          "isDarkMode": {
+            "type": "boolean"
+          },
+          "isBuiltIn": {
+            "type": "boolean"
+          }
+        }
+      },
+      "ChangeLens": {
+        "enum": [
+          "Access",
+          "AccessWithPowerPages",
+          null
+        ]
+      },
+      "ChangeWindowCoverage": {
+        "required": [
+          "scanCount",
+          "firstScanNumber",
+          "lastScanNumber",
+          "diffNotComparedCount",
+          "diffNotRecordedCount",
+          "findingsNotComparedCount",
+          "findingsWithExclusionsCount",
+          "findingGateNotRecordedCount"
+        ],
+        "type": "object",
+        "properties": {
+          "scanCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "firstScanNumber": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int32"
+          },
+          "lastScanNumber": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int32"
+          },
+          "diffNotComparedCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "diffNotRecordedCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "findingsNotComparedCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "findingsWithExclusionsCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "findingGateNotRecordedCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "ComponentAccessGrant": {
+        "required": [
+          "table",
+          "isConditional",
+          "confidence",
+          "source"
+        ],
+        "type": "object",
+        "properties": {
+          "table": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "isConditional": {
+            "type": "boolean"
+          },
+          "confidence": {
+            "$ref": "#/components/schemas/Confidence"
+          },
+          "source": {
+            "type": "string"
+          }
+        }
+      },
+      "ComponentAuthorship": {
+        "enum": [
+          "Undetermined",
+          "MicrosoftAuthored",
+          "CustomerAuthored",
+          "ThirdParty"
+        ]
+      },
+      "ComponentDetailResponse": {
+        "required": [
+          "id",
+          "sourceId",
+          "environmentId",
+          "name",
+          "componentType",
+          "enabled",
+          "liveness",
+          "isSystem",
+          "componentAuthorship",
+          "primaryEntity",
+          "formType",
+          "portalFormMode",
+          "parseStatus",
+          "parseNotes",
+          "makerDescription",
+          "unclassifiedExecuteCallCount",
+          "parentSolutions",
+          "writes",
+          "reads",
+          "unresolvedWrites",
+          "unresolvedReads",
+          "entityLevelWrites",
+          "totals",
+          "accessGrants",
+          "boundFlows",
+          "outboundEndpoint",
+          "pluginNarration",
+          "registration",
+          "portalSiteSourceId",
+          "portalSiteName"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "sourceId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "environmentId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string"
+          },
+          "componentType": {
+            "$ref": "#/components/schemas/ComponentType"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "liveness": {
+            "$ref": "#/components/schemas/ComponentLiveness"
+          },
+          "isSystem": {
+            "type": "boolean"
+          },
+          "componentAuthorship": {
+            "$ref": "#/components/schemas/ComponentAuthorship"
+          },
+          "primaryEntity": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "formType": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/FormType"
+              }
+            ]
+          },
+          "portalFormMode": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int32"
+          },
+          "parseStatus": {
+            "$ref": "#/components/schemas/ParseStatus"
+          },
+          "parseNotes": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "makerDescription": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "unclassifiedExecuteCallCount": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int32"
+          },
+          "parentSolutions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "writes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TableWriteGroup"
+            }
+          },
+          "reads": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TableReadGroup"
+            }
+          },
+          "unresolvedWrites": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UnresolvedWrite"
+            }
+          },
+          "unresolvedReads": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UnresolvedRead"
+            }
+          },
+          "entityLevelWrites": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EntityLevelWrite"
+            }
+          },
+          "totals": {
+            "$ref": "#/components/schemas/ComponentEdgeTotalsSummary"
+          },
+          "accessGrants": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ComponentAccessGrant"
+            }
+          },
+          "boundFlows": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BoundFlowSummary"
+            }
+          },
+          "outboundEndpoint": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/OutboundEndpointSummary"
+              }
+            ]
+          },
+          "pluginNarration": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/PluginNarrationSummary"
+              }
+            ]
+          },
+          "registration": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/RegistrationSummary"
+              }
+            ]
+          },
+          "portalSiteSourceId": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uuid"
+          },
+          "portalSiteName": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "aiPromptColumn": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/AiPromptColumnSummary"
+              }
+            ]
+          },
+          "knowledgeSource": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/KnowledgeSourceDetailSummary"
+              }
+            ]
+          },
+          "copilotAgent": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/CopilotAgentDetailSummary"
+              }
+            ]
+          },
+          "customApi": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/CustomApiDetailSummary"
+              }
+            ]
+          },
+          "extendedByPluginSteps": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ActionExtensionSummary"
+              }
+            ]
+          },
+          "extendsAction": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ExtendedActionSummary"
+              }
+            ]
+          }
+        }
+      },
+      "ComponentEdgeTotalsSummary": {
+        "required": [
+          "writes",
+          "reads",
+          "unresolvedWrites",
+          "unresolvedReads"
+        ],
+        "type": "object",
+        "properties": {
+          "writes": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "reads": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "unresolvedWrites": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "unresolvedReads": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "ComponentFieldRead": {
+        "required": [
+          "column",
+          "kind",
+          "isConditional",
+          "confidence",
+          "aiEvidence"
+        ],
+        "type": "object",
+        "properties": {
+          "column": {
+            "type": "string"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/ReferenceKind"
+          },
+          "isConditional": {
+            "type": "boolean"
+          },
+          "confidence": {
+            "$ref": "#/components/schemas/Confidence"
+          },
+          "aiEvidence": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "validationState": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ValidationState"
+              }
+            ]
+          },
+          "salience": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "format": "double"
+          },
+          "possiblyCrossEnvironment": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          }
+        }
+      },
+      "ComponentFieldWrite": {
+        "required": [
+          "column",
+          "kind",
+          "isConditional",
+          "confidence",
+          "aiEvidence"
+        ],
+        "type": "object",
+        "properties": {
+          "column": {
+            "type": "string"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/ActionType"
+          },
+          "isConditional": {
+            "type": "boolean"
+          },
+          "confidence": {
+            "$ref": "#/components/schemas/Confidence"
+          },
+          "aiEvidence": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "validationState": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ValidationState"
+              }
+            ]
+          },
+          "salience": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "format": "double"
+          },
+          "actionNames": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            }
+          },
+          "possiblyCrossEnvironment": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          }
+        }
+      },
+      "ComponentLiveness": {
+        "enum": [
+          "NotTracked",
+          "Enabled",
+          "Disabled",
+          "Suspended"
+        ],
+        "default": "NotTracked"
+      },
+      "ComponentOpenFindingCount": {
+        "required": [
+          "componentId",
+          "openCount",
+          "maxOpenSeverity"
+        ],
+        "type": "object",
+        "properties": {
+          "componentId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "openCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "maxOpenSeverity": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/FindingSeverity"
+              }
+            ]
+          }
+        }
+      },
+      "ComponentType": {
+        "enum": [
+          "PluginStep",
+          "ClassicWorkflow",
+          "Dialog",
+          "BusinessRule",
+          "Action",
+          "ModernFlow",
+          "BusinessProcessFlow",
+          "FormScript",
+          "PcfControl",
+          "CanvasApp",
+          "FormulaColumn",
+          "SavedQuery",
+          "Chart",
+          "Dashboard",
+          "Form",
+          "RibbonCommand",
+          "CalculatedColumn",
+          "RollupColumn",
+          "CustomApi",
+          "Dataflow",
+          "ConnectionReference",
+          "HtmlWebResource",
+          "ServiceEndpoint",
+          "Webhook",
+          "AttributeMapping",
+          "CustomConnector",
+          "PortalWebPage",
+          "PortalWebTemplate",
+          "PortalBasicForm",
+          "PortalList",
+          "PortalContentSnippet",
+          "PortalAdvancedForm",
+          "PortalServerLogic",
+          "PortalWebFile",
+          "AgentFlow",
+          "DataverseFunction",
+          "CopilotAgent",
+          "AIBuilderModel",
+          "AIPromptColumn",
+          "KnowledgeSource",
+          "PortalBotConsumer",
+          "VirtualTableDataProvider",
+          "Report",
+          "EmailTemplate",
+          "DuplicateDetectionRule",
+          "PortalCloudFlowConsumer"
+        ]
+      },
+      "Confidence": {
+        "enum": [
+          "Declared",
+          "Parsed",
+          "Low",
+          "Unresolved",
+          "Observed",
+          "AiDerived"
+        ]
+      },
+      "CopilotAgentDetailSummary": {
+        "required": [
+          "isDraft",
+          "isAutonomous",
+          "isManaged",
+          "authenticationMode",
+          "powerPlatformEnvironmentId",
+          "totalChildCount",
+          "tools",
+          "flowBindingCount",
+          "delegationCount",
+          "knowledge"
+        ],
+        "type": "object",
+        "properties": {
+          "isDraft": {
+            "type": "boolean"
+          },
+          "isAutonomous": {
+            "type": "boolean"
+          },
+          "isManaged": {
+            "type": "boolean"
+          },
+          "authenticationMode": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "powerPlatformEnvironmentId": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uuid"
+          },
+          "totalChildCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tools": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CopilotAgentToolSummary"
+            }
+          },
+          "flowBindingCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "delegationCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "knowledge": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CopilotAgentKnowledgeSummary"
+            }
+          }
+        }
+      },
+      "CopilotAgentKnowledgeSummary": {
+        "required": [
+          "componentId",
+          "name",
+          "isResolved",
+          "groundedTables",
+          "indexedColumnCount",
+          "groundedTablesWithoutColumnDetail"
+        ],
+        "type": "object",
+        "properties": {
+          "componentId": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string"
+          },
+          "isResolved": {
+            "type": "boolean"
+          },
+          "groundedTables": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "indexedColumnCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "groundedTablesWithoutColumnDetail": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "CopilotAgentToolSummary": {
+        "required": [
+          "name",
+          "actionKind",
+          "operationId",
+          "targetTable",
+          "targetTableIsInScan",
+          "targetFillMode",
+          "credentialMode",
+          "environmentVerdict",
+          "isDraft",
+          "writeEdgeTiers",
+          "calleeComponentId",
+          "calleeName",
+          "calleeComponentType",
+          "calleeRef",
+          "calleeConfidence",
+          "crossEnvironmentTargetOrigin"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "actionKind": {
+            "type": "string"
+          },
+          "operationId": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "targetTable": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "targetTableIsInScan": {
+            "type": "boolean"
+          },
+          "targetFillMode": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "credentialMode": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "environmentVerdict": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "isDraft": {
+            "type": "boolean"
+          },
+          "writeEdgeTiers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Confidence"
+            }
+          },
+          "calleeComponentId": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uuid"
+          },
+          "calleeName": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "calleeComponentType": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ComponentType"
+              }
+            ]
+          },
+          "calleeRef": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "calleeConfidence": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/Confidence"
+              }
+            ]
+          },
+          "crossEnvironmentTargetOrigin": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
+      "CustomApiDetailSummary": {
+        "required": [
+          "bindingType",
+          "isFunction",
+          "executePrivilegeName",
+          "isPrivate",
+          "allowedCustomProcessingStepType"
+        ],
+        "type": "object",
+        "properties": {
+          "bindingType": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "isFunction": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "executePrivilegeName": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "isPrivate": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "allowedCustomProcessingStepType": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
+      "DayOfWeek": {
+        "type": "integer"
+      },
+      "DeepScanHealth": {
+        "enum": [
+          "Standard",
+          "NotYetScanned",
+          "Verified",
+          "FellBack"
+        ]
+      },
+      "DiffRunStatus": {
+        "enum": [
+          "NotStarted",
+          "Running",
+          "Completed",
+          "Failed",
+          "Skipped"
+        ]
+      },
+      "EmbeddingHost": {
+        "required": [
+          "componentId",
+          "name",
+          "componentType",
+          "formType",
+          "kind"
+        ],
+        "type": "object",
+        "properties": {
+          "componentId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string"
+          },
+          "componentType": {
+            "$ref": "#/components/schemas/ComponentType"
+          },
+          "formType": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/FormType"
+              }
+            ]
+          },
+          "kind": {
+            "$ref": "#/components/schemas/InvocationKind"
+          }
+        }
+      },
+      "EntityLevelWrite": {
+        "required": [
+          "table",
+          "kind",
+          "isConditional",
+          "confidence",
+          "source"
+        ],
+        "type": "object",
+        "properties": {
+          "table": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "kind": {
+            "$ref": "#/components/schemas/ActionType"
+          },
+          "isConditional": {
+            "type": "boolean"
+          },
+          "confidence": {
+            "$ref": "#/components/schemas/Confidence"
+          },
+          "source": {
+            "type": "string"
+          }
+        }
+      },
+      "EnvironmentChangesResponse": {
+        "required": [
+          "environmentId",
+          "from",
+          "to",
+          "totalCount",
+          "entries"
+        ],
+        "type": "object",
+        "properties": {
+          "environmentId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "from": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "to": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "entries": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ScanDeltaEntryResponse"
+            }
+          },
+          "currentScanNumber": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int32"
+          },
+          "baselineScanNumber": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int32"
+          },
+          "findingDeltaGate": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/FindingDeltaGate"
+              }
+            ]
+          },
+          "findingDeltaGateReason": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "findingDeltaExcludedTypeCount": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int32"
+          },
+          "windowCoverage": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ChangeWindowCoverage"
+              }
+            ]
+          }
+        }
+      },
+      "EnvironmentResponse": {
+        "required": [
+          "id",
+          "name",
+          "url",
+          "dataverseEnvironmentId",
+          "powerPlatformEnvironmentId",
+          "enableCanvasAppDeepScan",
+          "enableAiSummarization",
+          "enableUnattributedNarration",
+          "analyzeRecordSharing",
+          "lastScannedAt",
+          "excludedEntities",
+          "latestActiveScan",
+          "deepScanHealth",
+          "scannerRoleHealth",
+          "scannerRoleMissingCount",
+          "scannerRoleHealthAsOf",
+          "scannerRoleHealthIsLive",
+          "schedule"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "dataverseEnvironmentId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "powerPlatformEnvironmentId": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uuid"
+          },
+          "enableCanvasAppDeepScan": {
+            "type": "boolean"
+          },
+          "enableAiSummarization": {
+            "type": "boolean"
+          },
+          "enableUnattributedNarration": {
+            "type": "boolean"
+          },
+          "analyzeRecordSharing": {
+            "type": "boolean"
+          },
+          "lastScannedAt": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "excludedEntities": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "latestActiveScan": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/EnvironmentScanSummaryResponse"
+              }
+            ]
+          },
+          "deepScanHealth": {
+            "$ref": "#/components/schemas/DeepScanHealth"
+          },
+          "scannerRoleHealth": {
+            "$ref": "#/components/schemas/ScannerRoleHealth"
+          },
+          "scannerRoleMissingCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "scannerRoleHealthAsOf": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "scannerRoleHealthIsLive": {
+            "type": "boolean"
+          },
+          "schedule": {
+            "$ref": "#/components/schemas/ScanScheduleSettings"
+          }
+        }
+      },
+      "EnvironmentScanSummaryResponse": {
+        "required": [
+          "id",
+          "status",
+          "startedAt"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "status": {
+            "$ref": "#/components/schemas/ScanStatus"
+          },
+          "startedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "ExtendedActionSummary": {
+        "required": [
+          "componentId",
+          "name",
+          "uniqueName",
+          "enabled",
+          "isSystem"
+        ],
+        "type": "object",
+        "properties": {
+          "componentId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string"
+          },
+          "uniqueName": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "isSystem": {
+            "type": "boolean"
+          }
+        }
+      },
+      "ExtensionRuntimeConfig": {
+        "required": [
+          "clientId",
+          "apiScope"
+        ],
+        "type": "object",
+        "properties": {
+          "clientId": {
+            "type": "string"
+          },
+          "apiScope": {
+            "type": "string"
+          }
+        }
+      },
+      "ExtensionStepSummary": {
+        "required": [
+          "componentId",
+          "name",
+          "enabled",
+          "isSystem",
+          "stage",
+          "executionOrder"
+        ],
+        "type": "object",
+        "properties": {
+          "componentId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "isSystem": {
+            "type": "boolean"
+          },
+          "stage": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "executionOrder": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int32"
+          }
+        }
+      },
+      "FieldDependentResponse": {
+        "required": [
+          "componentId",
+          "componentName",
+          "componentType",
+          "isSystem",
+          "targetTable",
+          "targetColumn",
+          "isConditional",
+          "confidence",
+          "referenceKind",
+          "source",
+          "aiEvidence",
+          "hasPluginNarration"
+        ],
+        "type": "object",
+        "properties": {
+          "componentId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "componentName": {
+            "type": "string"
+          },
+          "componentType": {
+            "$ref": "#/components/schemas/ComponentType"
+          },
+          "isSystem": {
+            "type": "boolean"
+          },
+          "targetTable": {
+            "type": "string"
+          },
+          "targetColumn": {
+            "type": "string"
+          },
+          "isConditional": {
+            "type": "boolean"
+          },
+          "confidence": {
+            "$ref": "#/components/schemas/Confidence"
+          },
+          "referenceKind": {
+            "$ref": "#/components/schemas/ReferenceKind"
+          },
+          "source": {
+            "type": "string"
+          },
+          "aiEvidence": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "hasPluginNarration": {
+            "type": "boolean"
+          },
+          "validationState": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ValidationState"
+              }
+            ]
+          },
+          "salience": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "format": "double"
+          },
+          "sourceId": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uuid"
+          },
+          "liveness": {
+            "$ref": "#/components/schemas/ComponentLiveness"
+          },
+          "hasUnboundConnectionReference": {
+            "type": "boolean",
+            "default": false
+          },
+          "portalSiteSourceId": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uuid"
+          },
+          "portalSiteName": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "primaryEntity": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "possiblyCrossEnvironment": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "embeddedIn": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/EmbeddingHost"
+            }
+          },
+          "embeddedInTotal": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int32"
+          },
+          "formControls": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/FormControlSummary"
+            }
+          },
+          "lockedControlCount": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int32"
+          },
+          "editableControlCount": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int32"
+          },
+          "visibleEditableControlCount": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int32"
+          },
+          "formReadOnly": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          }
+        }
+      },
+      "FieldDependentsResponse": {
+        "required": [
+          "results",
+          "coverageWarning"
+        ],
+        "type": "object",
+        "properties": {
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FieldDependentResponse"
+            }
+          },
+          "coverageWarning": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "platformDependentCount": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int32"
+          }
+        }
+      },
+      "FieldHistoryResponse": {
+        "required": [
+          "table",
+          "column",
+          "environmentId",
+          "historySince",
+          "totalCount",
+          "entries"
+        ],
+        "type": "object",
+        "properties": {
+          "table": {
+            "type": "string"
+          },
+          "column": {
+            "type": "string"
+          },
+          "environmentId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "historySince": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "entries": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ScanDeltaEntryResponse"
+            }
+          }
+        }
+      },
+      "FieldOpenFindingCount": {
+        "required": [
+          "subjectKey",
+          "openCount",
+          "maxOpenSeverity"
+        ],
+        "type": "object",
+        "properties": {
+          "subjectKey": {
+            "type": "string"
+          },
+          "openCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "maxOpenSeverity": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/FindingSeverity"
+              }
+            ]
+          }
+        }
+      },
+      "FieldPermissionResponse": {
+        "required": [
+          "profileId",
+          "profileName",
+          "canRead",
+          "canCreate",
+          "canUpdate",
+          "userCount",
+          "teamCount"
+        ],
+        "type": "object",
+        "properties": {
+          "profileId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "profileName": {
+            "type": "string"
+          },
+          "canRead": {
+            "type": "boolean"
+          },
+          "canCreate": {
+            "type": "boolean"
+          },
+          "canUpdate": {
+            "type": "boolean"
+          },
+          "userCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "teamCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "FieldPermissionsResponse": {
+        "required": [
+          "isSecured",
+          "grants"
+        ],
+        "type": "object",
+        "properties": {
+          "isSecured": {
+            "type": "boolean"
+          },
+          "grants": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FieldPermissionResponse"
+            }
+          },
+          "securedVia": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "sharePrincipalCount": {
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+          },
+          "shareRecordCount": {
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+          },
+          "shareCoverageIncomplete": {
+            "type": "boolean",
+            "default": false
+          }
+        }
+      },
+      "FieldWriterResponse": {
+        "required": [
+          "componentId",
+          "componentName",
+          "componentType",
+          "isSystem",
+          "targetTable",
+          "targetColumn",
+          "isConditional",
+          "isHumanDriven",
+          "source",
+          "confidence",
+          "actionTypes",
+          "aiEvidence",
+          "hasPluginNarration",
+          "isOrphaned"
+        ],
+        "type": "object",
+        "properties": {
+          "componentId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "componentName": {
+            "type": "string"
+          },
+          "componentType": {
+            "$ref": "#/components/schemas/ComponentType"
+          },
+          "isSystem": {
+            "type": "boolean"
+          },
+          "targetTable": {
+            "type": "string"
+          },
+          "targetColumn": {
+            "type": "string"
+          },
+          "isConditional": {
+            "type": "boolean"
+          },
+          "isHumanDriven": {
+            "type": "boolean"
+          },
+          "source": {
+            "type": "string"
+          },
+          "confidence": {
+            "$ref": "#/components/schemas/Confidence"
+          },
+          "actionTypes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ActionType"
+            }
+          },
+          "aiEvidence": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "hasPluginNarration": {
+            "type": "boolean"
+          },
+          "isOrphaned": {
+            "type": "boolean"
+          },
+          "validationState": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ValidationState"
+              }
+            ]
+          },
+          "salience": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "format": "double"
+          },
+          "sourceId": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uuid"
+          },
+          "liveness": {
+            "$ref": "#/components/schemas/ComponentLiveness"
+          },
+          "hasUnboundConnectionReference": {
+            "type": "boolean",
+            "default": false
+          },
+          "portalSiteSourceId": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uuid"
+          },
+          "portalSiteName": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "primaryEntity": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "possiblyCrossEnvironment": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "embeddedIn": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/EmbeddingHost"
+            }
+          },
+          "embeddedInTotal": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int32"
+          },
+          "triggers": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/TriggerSummary"
+            }
+          }
+        }
+      },
+      "FindingDeltaGate": {
+        "enum": [
+          "NotCompared",
+          "Compared",
+          "ComparedWithExclusions"
+        ]
+      },
+      "FindingDeltaGateCause": {
+        "enum": [
+          "PartialScan",
+          "NoEarlierScan",
+          "NoComparedBaseline",
+          "ComparisonInFlight",
+          "ComparisonDidNotFinish",
+          "FindingsIncompleteOnScan",
+          "FindingsIncompleteOnBaseline",
+          "DetectorNoLongerRegistered"
+        ]
+      },
+      "FindingSeverity": {
+        "enum": [
+          "Info",
+          "Low",
+          "Medium",
+          "High",
+          "Critical"
+        ]
+      },
+      "FindingType": {
+        "enum": [
+          "OrphanedPluginStep",
+          "SharedRole",
+          "PluginStepPrivilegeUncovered",
+          "OrphanedFlowAction",
+          "FieldSecuredButNoProfileGrants",
+          "ComponentParseFailure",
+          "OrphanedConnectionReference",
+          "SystemRoleOnApplicationUser",
+          "SecurityMetaWriteGrantedToApplicationUser",
+          "DisabledUserRetainsRoles",
+          "OrphanedServiceEndpoint",
+          "SensitiveColumnAuditGap",
+          "ExceptionSwallowing",
+          "MixedMembershipTeam",
+          "DisabledUserRetainsShares",
+          "SelfTriggeringWrite",
+          "UpdateStepWithoutFilteringColumns",
+          "PluginStepOnRetrieveMessage",
+          "UnboundConnectionReferenceInUse",
+          "DeprecatedConnectorBinding",
+          "SecuredColumnPropagatesToUnsecuredColumn",
+          "AutomationOwnedByDisabledUser",
+          "SyncStepCallsOutboundEndpoint",
+          "StepImpersonatesDisabledUser",
+          "StepImpersonatesNamedUser",
+          "AsyncStepWithoutAutoDelete",
+          "SecretInStepConfiguration",
+          "RoleManagementPrivilegeOnHumanRole",
+          "ActOnBehalfPrivilegeGranted",
+          "NonHttpsEndpointUrl",
+          "UncredentialedWebhook",
+          "StepOrderingTie",
+          "DuplicateStepRegistration",
+          "DefaultTeamHoldsPrivilegedRole",
+          "HttpTriggerFlowOpenAuth",
+          "FlowTriggerWithoutColumnFilter",
+          "SuspendedFlow",
+          "DeprecatedFormControl",
+          "PluginMakesDirectOutboundCall",
+          "NonHttpsOutboundCallInCode",
+          "NonHttpsCustomConnectorHost",
+          "DataflowSourceOverHttp",
+          "NonHttpsClientScriptCall",
+          "AnonymousTablePermission",
+          "AnonymousWriteTablePermission",
+          "CrossSitePortalPermissionRole",
+          "PortalPermissionParentChainBroken",
+          "PortalWebApiWildcardFields",
+          "PortalOpenRegistrationEnabled",
+          "PortalLocalLoginEnabled",
+          "SecuredColumnReachableFromPortal",
+          "PortalPageRuleWithoutWebRole",
+          "PortalPageRuleAdmitsAnonymous",
+          "PortalPageRuleOnLocalizedPage",
+          "PortalDemoModeEnabled",
+          "PortalDefaultPublishingStateMisconfigured",
+          "PortalAdvancedFormStepBindingBroken",
+          "PortalPageBindingNeverPlaced",
+          "PortalServerLogicAnonymouslyInvocable",
+          "PortalServerLogicWithoutWebRole",
+          "PortalServerLogicDynamicTableTarget",
+          "AgentWithoutAuthentication",
+          "AgentOwnedByDisabledUser",
+          "AiModelOwnedByDisabledUser",
+          "SensitiveColumnIndexedAsAgentKnowledge",
+          "AgentToolRunsAsMaker",
+          "AgentMissingLicense",
+          "FlowSelfTriggeringWrite",
+          "SecretInFlowDefinition",
+          "ChildFlowCallToDisabledFlow",
+          "FlowWriteContention",
+          "ActiveDialog",
+          "UserScopedWorkflow",
+          "WorkflowSelfTriggeringWrite",
+          "BusinessRuleWriteCollision",
+          "WorkflowWriteContention",
+          "PortalLiquidEmbedTargetMissing"
+        ]
+      },
+      "FindingsReadiness": {
+        "required": [
+          "status",
+          "completedAt",
+          "failedDetectorFindingTypes"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/FindingsRunStatus"
+          },
+          "completedAt": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "failedDetectorFindingTypes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FindingType"
+            }
+          }
+        }
+      },
+      "FindingsRunStatus": {
+        "enum": [
+          "NotStarted",
+          "Running",
+          "Completed",
+          "Failed"
+        ]
+      },
+      "FormControlSummary": {
+        "required": [
+          "controlId",
+          "locked",
+          "hidden",
+          "location",
+          "embed"
+        ],
+        "type": "object",
+        "properties": {
+          "controlId": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "locked": {
+            "type": "boolean"
+          },
+          "hidden": {
+            "type": "boolean"
+          },
+          "location": {
+            "type": "string"
+          },
+          "embed": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
+      "FormHandlerResponse": {
+        "required": [
+          "event",
+          "scope",
+          "scopeName",
+          "column",
+          "function",
+          "library",
+          "scriptComponentId",
+          "isEnabled",
+          "passExecutionContext",
+          "hasParameters",
+          "isPlatformLoaded",
+          "ordinal"
+        ],
+        "type": "object",
+        "properties": {
+          "event": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "scope": {
+            "type": "string"
+          },
+          "scopeName": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "column": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "function": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "library": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "scriptComponentId": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uuid"
+          },
+          "isEnabled": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "passExecutionContext": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "hasParameters": {
+            "type": "boolean"
+          },
+          "isPlatformLoaded": {
+            "type": "boolean"
+          },
+          "ordinal": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int32"
+          }
+        }
+      },
+      "FormHandlersResponse": {
+        "required": [
+          "formId",
+          "formName",
+          "table",
+          "scope",
+          "coverage",
+          "notModeledReason",
+          "ordered",
+          "handlers"
+        ],
+        "type": "object",
+        "properties": {
+          "formId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "formName": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "table": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "scope": {
+            "$ref": "#/components/schemas/FormHandlersScopeResponse"
+          },
+          "coverage": {
+            "type": "string"
+          },
+          "notModeledReason": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "ordered": {
+            "type": "boolean"
+          },
+          "handlers": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/FormHandlerResponse"
+            }
+          }
+        }
+      },
+      "FormHandlersScopeResponse": {
+        "required": [
+          "environmentId",
+          "scanId",
+          "scannedAt"
+        ],
+        "type": "object",
+        "properties": {
+          "environmentId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "scanId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "scannedAt": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          }
+        }
+      },
+      "FormType": {
+        "enum": [
+          "Main",
+          "QuickCreate",
+          "QuickView",
+          null
+        ]
+      },
+      "HierarchyMode": {
+        "enum": [
+          "Manager",
+          "Position",
+          null
+        ]
+      },
+      "ImpersonatingUserSummary": {
+        "required": [
+          "sourceId",
+          "name",
+          "isEnabled"
+        ],
+        "type": "object",
+        "properties": {
+          "sourceId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "isEnabled": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          }
+        }
+      },
+      "InvocationKind": {
+        "enum": [
+          "WorkflowToChildWorkflow",
+          "WorkflowToAction",
+          "FlowToChildFlow",
+          "FlowToAction",
+          "PluginToMessage",
+          "WorkflowToCustomActivity",
+          "PluginToWorkflow",
+          "FlowToDesktopFlow",
+          "FlowToConnector",
+          "PluginToExternalEndpoint",
+          "ClientScriptToExternalEndpoint",
+          "PortalToComponent",
+          "PortalRendersTemplate",
+          "PortalExtendsTemplate",
+          "PortalIncludesTemplate",
+          "PortalReferencesSnippet",
+          "PortalEmbedsComponent",
+          "PortalPlacesComponent",
+          "FormRegistersScript",
+          "RibbonInvokesScript",
+          "ServerLogicToMessage",
+          "PortalLinksToPage",
+          "RegistrationRunsFunction",
+          "AIModelSchedulesWorkflow",
+          "FlowToExternalEnvironment",
+          "PromptColumnUsesAIModel",
+          "AgentUsesKnowledgeSource",
+          "FlowInvokesAIModel",
+          "AgentInvokesFlow",
+          "AgentDelegatesToAgent",
+          "FlowInvokesAgent",
+          "PortalEmbedsAgent",
+          "FormEmbedsQuickView",
+          "FormEmbedsForm",
+          "FormEmbedsView",
+          "DataProviderDispatchesToPlugin",
+          "FlowToExternalEndpoint",
+          "PortalRedirectsToPage",
+          "DashboardEmbedsView",
+          "DashboardEmbedsChart",
+          "FormEmbedsWebResource",
+          "WebResourceLoadsScript",
+          "RibbonOpensWebResource",
+          "FormEmbedsChart",
+          "AgentToolToMessage",
+          "PortalInvokesFlow"
+        ]
+      },
+      "KnowledgeSourceConsumerSummary": {
+        "required": [
+          "componentId",
+          "name",
+          "authenticationMode"
+        ],
+        "type": "object",
+        "properties": {
+          "componentId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string"
+          },
+          "authenticationMode": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
+      "KnowledgeSourceDetailSummary": {
+        "required": [
+          "enabled",
+          "consumers",
+          "appUniqueName",
+          "exposure",
+          "groundedTablesWithoutColumnDetail",
+          "sensitiveRegisterTruncated",
+          "findings"
+        ],
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean"
+          },
+          "consumers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/KnowledgeSourceConsumerSummary"
+            }
+          },
+          "appUniqueName": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "exposure": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/KnowledgeSourceExposureSummary"
+            }
+          },
+          "groundedTablesWithoutColumnDetail": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sensitiveRegisterTruncated": {
+            "type": "boolean"
+          },
+          "findings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/KnowledgeSourceFindingSummary"
+            }
+          }
+        }
+      },
+      "KnowledgeSourceExposureSummary": {
+        "required": [
+          "grain",
+          "table",
+          "column",
+          "kind",
+          "isSensitive",
+          "isPinned",
+          "sensitiveColumnsOnTable"
+        ],
+        "type": "object",
+        "properties": {
+          "grain": {
+            "$ref": "#/components/schemas/AiEstateExposureGrain"
+          },
+          "table": {
+            "type": "string"
+          },
+          "column": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "kind": {
+            "$ref": "#/components/schemas/ReferenceKind"
+          },
+          "isSensitive": {
+            "type": "boolean"
+          },
+          "isPinned": {
+            "type": "boolean"
+          },
+          "sensitiveColumnsOnTable": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int32"
+          }
+        }
+      },
+      "KnowledgeSourceFindingSummary": {
+        "required": [
+          "id",
+          "severity",
+          "summary",
+          "table",
+          "column"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "severity": {
+            "$ref": "#/components/schemas/FindingSeverity"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "table": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "column": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
+      "LicenseKind": {
+        "enum": [
+          "Subscription",
+          "Trial"
+        ]
+      },
+      "LicenseRenewalUrgency": {
+        "enum": [
+          "None",
+          "Notice",
+          "Warning",
+          "Urgent"
+        ]
+      },
+      "LicenseStatus": {
+        "enum": [
+          "Valid",
+          "Grace",
+          "Expired",
+          "Invalid",
+          "Missing"
+        ]
+      },
+      "LicenseStatusResponse": {
+        "required": [
+          "status",
+          "enforced",
+          "functional",
+          "expiresOn",
+          "graceDaysRemaining",
+          "message",
+          "measuredBand",
+          "licensedBand",
+          "overBand",
+          "excludedPlatformManagedPrincipals",
+          "excludedAdministrativeModePrincipals",
+          "daysUntilExpiry",
+          "renewalUrgency",
+          "kind"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/LicenseStatus"
+          },
+          "enforced": {
+            "type": "boolean"
+          },
+          "functional": {
+            "type": "boolean"
+          },
+          "expiresOn": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "graceDaysRemaining": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "measuredBand": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "licensedBand": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "overBand": {
+            "type": "boolean"
+          },
+          "excludedPlatformManagedPrincipals": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int32"
+          },
+          "excludedAdministrativeModePrincipals": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int32"
+          },
+          "daysUntilExpiry": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int32"
+          },
+          "renewalUrgency": {
+            "$ref": "#/components/schemas/LicenseRenewalUrgency"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/LicenseKind"
+          }
+        }
+      },
+      "NarrationConfidence": {
+        "enum": [
+          "High",
+          "Medium",
+          "Low",
+          null
+        ]
+      },
+      "NarrationStep": {
+        "required": [
+          "step",
+          "what"
+        ],
+        "type": "object",
+        "properties": {
+          "step": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "what": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
+      "OpenFindingCountsResponse": {
+        "required": [
+          "fields",
+          "components",
+          "roles",
+          "readiness"
+        ],
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FieldOpenFindingCount"
+            }
+          },
+          "components": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ComponentOpenFindingCount"
+            }
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RoleOpenFindingCount"
+            }
+          },
+          "readiness": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ScanReadiness"
+              }
+            ]
+          }
+        }
+      },
+      "OutboundEndpointSummary": {
+        "required": [
+          "componentId",
+          "name",
+          "componentType",
+          "contract",
+          "messageFormat",
+          "namespaceAddress",
+          "path",
+          "url",
+          "httpMethod",
+          "authScheme",
+          "credentialConfigured"
+        ],
+        "type": "object",
+        "properties": {
+          "componentId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string"
+          },
+          "componentType": {
+            "$ref": "#/components/schemas/ComponentType"
+          },
+          "contract": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "messageFormat": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "namespaceAddress": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "path": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "url": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "httpMethod": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "authScheme": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "credentialConfigured": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          }
+        }
+      },
+      "ParseStatus": {
+        "enum": [
+          "NotApplicable",
+          "Success",
+          "PartialSuccess",
+          "Failed",
+          "SourceUnavailable"
+        ]
+      },
+      "PathixChangeCause": {
+        "enum": [
+          "ParserRevised",
+          "FamilyIntroduced"
+        ]
+      },
+      "PluginNarrationSummary": {
+        "required": [
+          "state",
+          "trigger",
+          "logic",
+          "steps",
+          "intent",
+          "reads",
+          "writes",
+          "magicNumberResolutions",
+          "assemblyNotes",
+          "generatedByModel",
+          "generatedAt",
+          "assemblyVersionNumber",
+          "scannedVersionNumber",
+          "assemblyConfidence",
+          "isStale",
+          "otherTypesInAssembly"
+        ],
+        "type": "object",
+        "properties": {
+          "state": {
+            "type": "string"
+          },
+          "trigger": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "logic": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "steps": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NarrationStep"
+            }
+          },
+          "intent": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "reads": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "writes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "magicNumberResolutions": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "assemblyNotes": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "generatedByModel": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "generatedAt": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "assemblyVersionNumber": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int64"
+          },
+          "scannedVersionNumber": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int64"
+          },
+          "assemblyConfidence": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/NarrationConfidence"
+              }
+            ]
+          },
+          "isStale": {
+            "type": "boolean"
+          },
+          "otherTypesInAssembly": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "PluginStepImageSummary": {
+        "required": [
+          "imageType",
+          "name",
+          "entityAlias",
+          "columns"
+        ],
+        "type": "object",
+        "properties": {
+          "imageType": {
+            "type": "string"
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "entityAlias": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "columns": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "PrincipalAppIdLookupResponse": {
+        "required": [
+          "requestedAppIds",
+          "scope",
+          "principals"
+        ],
+        "type": "object",
+        "properties": {
+          "requestedAppIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          "scope": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/PrincipalLookupScopeResponse"
+              }
+            ]
+          },
+          "principals": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PrincipalSummaryResponse"
+            }
+          }
+        }
+      },
+      "PrincipalLookupScopeResponse": {
+        "required": [
+          "environmentId",
+          "scanId",
+          "scannedAt"
+        ],
+        "type": "object",
+        "properties": {
+          "environmentId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "scanId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "scannedAt": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          }
+        }
+      },
+      "PrincipalSummaryResponse": {
+        "required": [
+          "id",
+          "sourceId",
+          "name",
+          "principalType",
+          "appId",
+          "isEnabled",
+          "isSystem",
+          "isDefaultTeam",
+          "accessMode",
+          "proxyLabel",
+          "roleCount",
+          "teamCount"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "sourceId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string"
+          },
+          "principalType": {
+            "$ref": "#/components/schemas/PrincipalType"
+          },
+          "appId": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uuid"
+          },
+          "isEnabled": {
+            "type": "boolean"
+          },
+          "isSystem": {
+            "type": "boolean"
+          },
+          "isDefaultTeam": {
+            "type": "boolean"
+          },
+          "accessMode": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int32"
+          },
+          "proxyLabel": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "roleCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "teamCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "PrincipalType": {
+        "enum": [
+          "User",
+          "ApplicationUser",
+          "Team"
+        ]
+      },
+      "PrivilegeAccessType": {
+        "enum": [
+          "Create",
+          "Read",
+          "Write",
+          "Delete",
+          "Append",
+          "AppendTo",
+          "Assign",
+          "Share"
+        ]
+      },
+      "PrivilegeScope": {
+        "enum": [
+          "None",
+          "RecordFilter",
+          "Basic",
+          "Local",
+          "Deep",
+          "Global",
+          null
+        ]
+      },
+      "ReferenceKind": {
+        "enum": [
+          "Filter",
+          "Display",
+          "Computation",
+          "PreImage",
+          "PostImage",
+          "FormBehavior"
+        ]
+      },
+      "RegistrationSummary": {
+        "required": [
+          "message",
+          "stage",
+          "executionOrder",
+          "filteringAttributes",
+          "primaryEntity"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "stage": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "executionOrder": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int32"
+          },
+          "filteringAttributes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "primaryEntity": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "executionMode": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "asyncAutoDelete": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "impersonatingUser": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ImpersonatingUserSummary"
+              }
+            ]
+          },
+          "triggers": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/TriggerSummary"
+            }
+          },
+          "images": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/PluginStepImageSummary"
+            }
+          }
+        }
+      },
+      "RoleOpenFindingCount": {
+        "required": [
+          "roleId",
+          "openCount",
+          "maxOpenSeverity"
+        ],
+        "type": "object",
+        "properties": {
+          "roleId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "openCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "maxOpenSeverity": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/FindingSeverity"
+              }
+            ]
+          }
+        }
+      },
+      "RoleSummaryResponse": {
+        "required": [
+          "id",
+          "sourceId",
+          "name",
+          "isCustom",
+          "roleTemplateId",
+          "parentRootRoleId",
+          "assignmentCount",
+          "humanAssignmentCount",
+          "integrationAssignmentCount",
+          "teamAssignmentCount",
+          "platformManagedAssignmentCount",
+          "grantedTableCount"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "sourceId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string"
+          },
+          "isCustom": {
+            "type": "boolean"
+          },
+          "roleTemplateId": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uuid"
+          },
+          "parentRootRoleId": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uuid"
+          },
+          "assignmentCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "humanAssignmentCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "integrationAssignmentCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "teamAssignmentCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "platformManagedAssignmentCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "grantedTableCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "RuntimeConfigResponse": {
+        "required": [
+          "msalEnabled",
+          "azureAd",
+          "license",
+          "branding",
+          "extension"
+        ],
+        "type": "object",
+        "properties": {
+          "msalEnabled": {
+            "type": "boolean"
+          },
+          "azureAd": {
+            "$ref": "#/components/schemas/AzureAdRuntimeConfig"
+          },
+          "license": {
+            "$ref": "#/components/schemas/LicenseStatusResponse"
+          },
+          "branding": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/BrandingResponse"
+              }
+            ]
+          },
+          "extension": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ExtensionRuntimeConfig"
+              }
+            ]
+          }
+        }
+      },
+      "SalienceReadiness": {
+        "required": [
+          "status",
+          "completedAt",
+          "degraded"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/SalienceRunStatus"
+          },
+          "completedAt": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "degraded": {
+            "type": "boolean"
+          }
+        }
+      },
+      "SalienceRunStatus": {
+        "enum": [
+          "NotStarted",
+          "Running",
+          "Completed",
+          "Failed"
+        ]
+      },
+      "SavePipelineBusinessRuleResponse": {
+        "required": [
+          "componentId",
+          "componentName",
+          "isSystem"
+        ],
+        "type": "object",
+        "properties": {
+          "componentId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "componentName": {
+            "type": "string"
+          },
+          "isSystem": {
+            "type": "boolean"
+          }
+        }
+      },
+      "SavePipelineClientHandlerResponse": {
+        "required": [
+          "library",
+          "function",
+          "isEnabled",
+          "isPlatformLoaded",
+          "scriptComponentId"
+        ],
+        "type": "object",
+        "properties": {
+          "library": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "function": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "isEnabled": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "isPlatformLoaded": {
+            "type": "boolean"
+          },
+          "scriptComponentId": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uuid"
+          }
+        }
+      },
+      "SavePipelineClientLayerResponse": {
+        "required": [
+          "formId",
+          "coverage",
+          "notModeledReason",
+          "ordered",
+          "handlers"
+        ],
+        "type": "object",
+        "properties": {
+          "formId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "coverage": {
+            "type": "string"
+          },
+          "notModeledReason": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "ordered": {
+            "type": "boolean"
+          },
+          "handlers": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/SavePipelineClientHandlerResponse"
+            }
+          }
+        }
+      },
+      "SavePipelineEntryResponse": {
+        "required": [
+          "componentId",
+          "componentName",
+          "componentType",
+          "isSystem",
+          "trigger",
+          "matchedColumns",
+          "executionOrder",
+          "orderUnknown",
+          "tiedOrder",
+          "allTables",
+          "conditional",
+          "rowFilterUnknown"
+        ],
+        "type": "object",
+        "properties": {
+          "componentId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "componentName": {
+            "type": "string"
+          },
+          "componentType": {
+            "type": "string"
+          },
+          "isSystem": {
+            "type": "boolean"
+          },
+          "trigger": {
+            "$ref": "#/components/schemas/TriggerSummary"
+          },
+          "matchedColumns": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            }
+          },
+          "executionOrder": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int32"
+          },
+          "orderUnknown": {
+            "type": "boolean"
+          },
+          "tiedOrder": {
+            "type": "boolean"
+          },
+          "allTables": {
+            "type": "boolean"
+          },
+          "conditional": {
+            "type": "boolean"
+          },
+          "rowFilterUnknown": {
+            "type": "boolean"
+          }
+        }
+      },
+      "SavePipelineLaneResponse": {
+        "required": [
+          "lane",
+          "stage",
+          "kind",
+          "ordered",
+          "entries"
+        ],
+        "type": "object",
+        "properties": {
+          "lane": {
+            "type": "string"
+          },
+          "stage": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int32"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "ordered": {
+            "type": "boolean"
+          },
+          "entries": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SavePipelineEntryResponse"
+            }
+          }
+        }
+      },
+      "SavePipelineResponse": {
+        "required": [
+          "table",
+          "message",
+          "columns",
+          "browseMode",
+          "scope",
+          "lanes",
+          "unplaced",
+          "serverBusinessRules",
+          "excludedDisabled",
+          "unresolvedTableSteps",
+          "clientLayer",
+          "disclosures"
+        ],
+        "type": "object",
+        "properties": {
+          "table": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "columns": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            }
+          },
+          "browseMode": {
+            "type": "boolean"
+          },
+          "scope": {
+            "$ref": "#/components/schemas/SavePipelineScopeResponse"
+          },
+          "lanes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SavePipelineLaneResponse"
+            }
+          },
+          "unplaced": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SavePipelineEntryResponse"
+            }
+          },
+          "serverBusinessRules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SavePipelineBusinessRuleResponse"
+            }
+          },
+          "excludedDisabled": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "unresolvedTableSteps": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "clientLayer": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SavePipelineClientLayerResponse"
+              }
+            ]
+          },
+          "disclosures": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "SavePipelineScopeResponse": {
+        "required": [
+          "environmentId",
+          "scanId",
+          "scannedAt"
+        ],
+        "type": "object",
+        "properties": {
+          "environmentId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "scanId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "scannedAt": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          }
+        }
+      },
+      "ScanDeltaEntryResponse": {
+        "required": [
+          "changeKind",
+          "subjectKind",
+          "subjectId",
+          "subjectName",
+          "relatedSubjectId",
+          "relatedSubjectName",
+          "targetTable",
+          "targetColumn",
+          "before",
+          "after",
+          "detail",
+          "detectedAt"
+        ],
+        "type": "object",
+        "properties": {
+          "changeKind": {
+            "$ref": "#/components/schemas/ScanDeltaKind"
+          },
+          "subjectKind": {
+            "$ref": "#/components/schemas/ScanDeltaSubjectKind"
+          },
+          "subjectId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "subjectName": {
+            "type": "string"
+          },
+          "relatedSubjectId": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uuid"
+          },
+          "relatedSubjectName": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "targetTable": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "targetColumn": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "before": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "after": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "detail": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "detectedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "subjectCurrentId": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uuid"
+          },
+          "impactScore": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "format": "double"
+          },
+          "impactResolvedFrom": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "subjectComponentType": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ComponentType"
+              }
+            ]
+          },
+          "portalSiteId": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uuid"
+          },
+          "findingType": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/FindingType"
+              }
+            ]
+          },
+          "findingSeverity": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/FindingSeverity"
+              }
+            ]
+          },
+          "scanId": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uuid"
+          },
+          "scanSequenceNumber": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int32"
+          },
+          "subjectIsSystem": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "findingSubjectKey": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "pathixChange": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/PathixChangeCause"
+              }
+            ]
+          },
+          "relatedSubjectCurrentId": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uuid"
+          }
+        }
+      },
+      "ScanDeltaKind": {
+        "enum": [
+          "WriteAdded",
+          "WriteRemoved",
+          "ReadAdded",
+          "ReadRemoved",
+          "SourceChanged",
+          "ComponentAdded",
+          "ComponentRemoved",
+          "ComponentRenamed",
+          "FindingNew",
+          "FindingResolved",
+          "RoleCreated",
+          "RoleDeleted",
+          "RoleRenamed",
+          "PrivilegeGranted",
+          "PrivilegeRevoked",
+          "PrivilegeScopeChanged",
+          "RoleAssigned",
+          "RoleUnassigned",
+          "TeamMemberAdded",
+          "TeamMemberRemoved",
+          "PrincipalCreated",
+          "PrincipalRemoved",
+          "PrincipalEnabledChanged",
+          "FlsGrantAdded",
+          "FlsGrantRemoved",
+          "FlsGrantChanged",
+          "FlsMembershipAdded",
+          "FlsMembershipRemoved",
+          "HierarchyConfigChanged",
+          "EdgeValidationRestored",
+          "EdgeValidationCrossing",
+          "PublisherDetected",
+          "ComponentReclassifiedToSystem",
+          "ColumnAdded",
+          "ColumnRemoved",
+          "TableAdded",
+          "TableRemoved",
+          "ComponentReclassifiedToCustomer",
+          "PublisherAdded",
+          "PublisherRemoved",
+          "PrefixAdded",
+          "PrefixRemoved",
+          "PortalSiteAdded",
+          "PortalSiteRemoved",
+          "PortalSiteDataModelChanged",
+          "PortalWebRoleAdded",
+          "PortalWebRoleRemoved",
+          "PortalWebRoleChanged",
+          "PortalTablePermissionAdded",
+          "PortalTablePermissionRemoved",
+          "PortalTablePermissionChanged",
+          "PortalColumnProfileAdded",
+          "PortalColumnProfileRemoved",
+          "PortalColumnPermissionAdded",
+          "PortalColumnPermissionRemoved",
+          "PortalColumnPermissionChanged",
+          "PortalPageAccessRuleAdded",
+          "PortalPageAccessRuleRemoved",
+          "PortalPageAccessRuleChanged",
+          "PortalRoleAttached",
+          "PortalRoleDetached",
+          "PortalWebApiExposureChanged",
+          "PortalSitePostureChanged",
+          "PortalIdentityProviderAdded",
+          "PortalIdentityProviderRemoved",
+          "PortalPageAdded",
+          "PortalPageRemoved",
+          "PortalPageChanged",
+          "InvocationAdded",
+          "InvocationRemoved",
+          "ComponentTypeChanged",
+          "FindingRegressed",
+          "FindingRecurred"
+        ]
+      },
+      "ScanDeltaKindCount": {
+        "required": [
+          "changeKind",
+          "count"
+        ],
+        "type": "object",
+        "properties": {
+          "changeKind": {
+            "$ref": "#/components/schemas/ScanDeltaKind"
+          },
+          "count": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "ScanDeltaSubjectKind": {
+        "enum": [
+          "Component",
+          "SecurityRole",
+          "Principal",
+          "FieldSecurityProfile",
+          "Field",
+          "EnvironmentConfig",
+          "Publisher",
+          "Table",
+          "Prefix",
+          "PortalSite",
+          "PortalWebRole",
+          "PortalPermission"
+        ]
+      },
+      "ScanReadiness": {
+        "required": [
+          "scanId",
+          "findings",
+          "salience"
+        ],
+        "type": "object",
+        "properties": {
+          "scanId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "findings": {
+            "$ref": "#/components/schemas/FindingsReadiness"
+          },
+          "salience": {
+            "$ref": "#/components/schemas/SalienceReadiness"
+          }
+        }
+      },
+      "ScanScheduleSettings": {
+        "required": [
+          "enabled",
+          "dayOfWeek",
+          "timeUtc"
+        ],
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean"
+          },
+          "dayOfWeek": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/DayOfWeek"
+              }
+            ]
+          },
+          "timeUtc": {
+            "type": "string",
+            "format": "time"
+          }
+        }
+      },
+      "ScanStatus": {
+        "enum": [
+          "Queued",
+          "Running",
+          "Completed",
+          "Failed",
+          "Cancelled",
+          "Partial"
+        ]
+      },
+      "ScanSummaryResponse": {
+        "required": [
+          "id",
+          "environmentId",
+          "environmentName",
+          "status",
+          "startedAt",
+          "completedAt",
+          "failedComponentCount",
+          "error",
+          "currentPhase",
+          "lastHeartbeatAt",
+          "failedDetectorCount",
+          "findingsStatus",
+          "diffStatus",
+          "diffChangeCount",
+          "salienceStatus",
+          "diffKindCounts"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "environmentId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "environmentName": {
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/ScanStatus"
+          },
+          "startedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "completedAt": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "failedComponentCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "error": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "currentPhase": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "lastHeartbeatAt": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "failedDetectorCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "findingsStatus": {
+            "$ref": "#/components/schemas/FindingsRunStatus"
+          },
+          "diffStatus": {
+            "$ref": "#/components/schemas/DiffRunStatus"
+          },
+          "diffChangeCount": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int32"
+          },
+          "salienceStatus": {
+            "$ref": "#/components/schemas/SalienceRunStatus"
+          },
+          "diffKindCounts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ScanDeltaKindCount"
+            }
+          },
+          "findingDeltaGate": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/FindingDeltaGate"
+              }
+            ]
+          },
+          "findingDeltaGateReason": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "findingDeltaExcludedTypeCount": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int32"
+          },
+          "nonMicrosoftFailedComponentCount": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int32"
+          },
+          "microsoftFailedComponentCount": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int32"
+          },
+          "fullRescanRequested": {
+            "type": "boolean",
+            "default": false
+          },
+          "dataverseRequestCount": {
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+          },
+          "findingDeltaGateCause": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/FindingDeltaGateCause"
+              }
+            ]
+          }
+        }
+      },
+      "ScannerRoleHealth": {
+        "enum": [
+          "Unknown",
+          "Healthy",
+          "GrantsMissing"
+        ]
+      },
+      "SecurityWriterResponse": {
+        "required": [
+          "principalId",
+          "principalType",
+          "principalName",
+          "appId",
+          "roleName",
+          "scope",
+          "accessType",
+          "viaTeamId",
+          "viaTeamName"
+        ],
+        "type": "object",
+        "properties": {
+          "principalId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "principalType": {
+            "$ref": "#/components/schemas/PrincipalType"
+          },
+          "principalName": {
+            "type": "string"
+          },
+          "appId": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uuid"
+          },
+          "roleName": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "scope": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/PrivilegeScope"
+              }
+            ]
+          },
+          "accessType": {
+            "$ref": "#/components/schemas/PrivilegeAccessType"
+          },
+          "viaTeamId": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uuid"
+          },
+          "viaTeamName": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "viaManagerOfId": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uuid"
+          },
+          "viaManagerOfName": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "hierarchyDepth": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int32"
+          },
+          "hierarchyMode": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/HierarchyMode"
+              }
+            ]
+          },
+          "teamOwnedRecordsOnly": {
+            "type": "boolean",
+            "default": false
+          }
+        }
+      },
+      "SecurityWriterScopeBreakdownResponse": {
+        "required": [
+          "totalPrincipals",
+          "global",
+          "deep",
+          "local",
+          "basic",
+          "recordFilter",
+          "none",
+          "hierarchyOnly"
+        ],
+        "type": "object",
+        "properties": {
+          "totalPrincipals": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "global": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "deep": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "local": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "basic": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "recordFilter": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "none": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "hierarchyOnly": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "SecurityWritersResponse": {
+        "required": [
+          "writers",
+          "scopeBreakdown",
+          "coverageNotes",
+          "tableResolved",
+          "withheldPrincipalCount"
+        ],
+        "type": "object",
+        "properties": {
+          "writers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SecurityWriterResponse"
+            }
+          },
+          "scopeBreakdown": {
+            "$ref": "#/components/schemas/SecurityWriterScopeBreakdownResponse"
+          },
+          "coverageNotes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "tableResolved": {
+            "type": "boolean"
+          },
+          "withheldPrincipalCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "TableReadGroup": {
+        "required": [
+          "table",
+          "fields"
+        ],
+        "type": "object",
+        "properties": {
+          "table": {
+            "type": "string"
+          },
+          "fields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ComponentFieldRead"
+            }
+          }
+        }
+      },
+      "TableWriteGroup": {
+        "required": [
+          "table",
+          "fields"
+        ],
+        "type": "object",
+        "properties": {
+          "table": {
+            "type": "string"
+          },
+          "fields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ComponentFieldWrite"
+            }
+          }
+        }
+      },
+      "TriggerSummary": {
+        "required": [
+          "message",
+          "stage",
+          "executionMode",
+          "table",
+          "filteringColumns",
+          "firesOnEveryUpdate",
+          "hasRowFilter"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "stage": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "executionMode": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "table": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "filteringColumns": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "firesOnEveryUpdate": {
+            "type": "boolean"
+          },
+          "hasRowFilter": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          }
+        }
+      },
+      "UnresolvedRead": {
+        "required": [
+          "table",
+          "kind",
+          "isConditional",
+          "source"
+        ],
+        "type": "object",
+        "properties": {
+          "table": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "kind": {
+            "$ref": "#/components/schemas/ReferenceKind"
+          },
+          "isConditional": {
+            "type": "boolean"
+          },
+          "source": {
+            "type": "string"
+          },
+          "column": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
+      "UnresolvedWrite": {
+        "required": [
+          "table",
+          "kind",
+          "isConditional",
+          "source"
+        ],
+        "type": "object",
+        "properties": {
+          "table": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "kind": {
+            "$ref": "#/components/schemas/ActionType"
+          },
+          "isConditional": {
+            "type": "boolean"
+          },
+          "source": {
+            "type": "string"
+          },
+          "column": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
+      "ValidationState": {
+        "enum": [
+          "None",
+          "Validated",
+          "Dismissed",
+          "Superseded",
+          null
+        ]
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "ConfigEndpoint"
+    },
+    {
+      "name": "ChangesEndpoints"
+    },
+    {
+      "name": "EnvironmentsEndpoints"
+    },
+    {
+      "name": "ScansEndpoints"
+    },
+    {
+      "name": "FindingsEndpoints"
+    },
+    {
+      "name": "ComponentsEndpoints"
+    },
+    {
+      "name": "FormHandlersEndpoints"
+    },
+    {
+      "name": "TablesEndpoints"
+    },
+    {
+      "name": "PrincipalsEndpoints"
+    },
+    {
+      "name": "RolesEndpoints"
+    }
+  ]
+}

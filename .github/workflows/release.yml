@@ -1,0 +1,118 @@
+# Packages a draft release when a v* tag is pushed, for example v0.1.0.
+#
+# build (read-only): fails unless the tagged commit is on main, then installs,
+# typechecks, tests and builds with the version from the tag, zips dist/,
+# checks the zip and uploads it as a workflow artifact.
+# release (contents: write): downloads that zip, checks it again and attaches
+# it to a draft GitHub release. It installs nothing and runs no npm code. A
+# person checks the zip and publishes the draft.
+#
+# Read-only token at the top, write access only on the release job, no
+# secrets, every action pinned to a commit SHA.
+# test/ci-workflow.test.ts holds those rules.
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Check the tagged commit is on main
+        run: |
+          git merge-base --is-ancestor "$GITHUB_SHA" origin/main || {
+            echo "::error::$GITHUB_REF_NAME points at $GITHUB_SHA, which is not on main. Release only from main."
+            exit 1
+          }
+      # No npm cache: a release installs from the lockfile alone.
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
+        with:
+          node-version: 22
+      - name: Read the version from the tag
+        id: version
+        run: |
+          version="$(node --input-type=module --eval 'import { versionFromTag } from "./scripts/manifest.mjs"; console.log(versionFromTag(process.env.GITHUB_REF_NAME));')"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - name: Build with the version from the tag
+        run: node build.mjs --release "$GITHUB_REF_NAME"
+      - name: Zip dist
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          cd dist
+          zip -r -X "../pathix-extension-$VERSION.zip" .
+      - name: Check the zip
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: node scripts/check-release.mjs "pathix-extension-$VERSION.zip" "$GITHUB_REF_NAME"
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: release-zip
+          path: pathix-extension-${{ steps.version.outputs.version }}.zip
+          if-no-files-found: error
+          retention-days: 7
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      # Only for scripts/check-release.mjs. Nothing is installed.
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
+        with:
+          node-version: 22
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: release-zip
+      - name: Check the zip
+        env:
+          VERSION: ${{ needs.build.outputs.version }}
+        run: node scripts/check-release.mjs "pathix-extension-$VERSION.zip" "$GITHUB_REF_NAME"
+      - name: Create the draft GitHub release
+        env:
+          VERSION: ${{ needs.build.outputs.version }}
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: gh release create "$GITHUB_REF_NAME" "pathix-extension-$VERSION.zip" --draft --verify-tag --title "$GITHUB_REF_NAME" --generate-notes
+
+  # Placeholder: publish the zip to the Chrome Web Store and Edge Add-ons.
+  # Off until the maintainer sets up the protected `release` environment with
+  # required reviewers and these environment secrets:
+  #   Chrome Web Store: CWS_CLIENT_ID, CWS_CLIENT_SECRET, CWS_REFRESH_TOKEN, CWS_EXTENSION_ID
+  #   Edge Add-ons:     EDGE_CLIENT_ID, EDGE_API_KEY, EDGE_PRODUCT_ID
+  # Nothing here reads a secret yet. When it does, read them only in this job,
+  # and only from the `release` environment.
+  publish-stores:
+    needs: release
+    if: false
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment: release
+    permissions:
+      contents: read
+    steps:
+      - run: echo "Store publishing is not set up yet."

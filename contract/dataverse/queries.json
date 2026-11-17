@@ -1,0 +1,262 @@
+[
+  {
+    "name": "whoami",
+    "path": "WhoAmI",
+    "purpose": "The signed-in user's id, business unit and organization. Later queries reuse UserId."
+  },
+  {
+    "name": "attribute-account-name",
+    "path": "EntityDefinitions(LogicalName='account')/Attributes(LogicalName='name')?$select=LogicalName,MetadataId,AttributeType,AttributeTypeName,IsSecured,IsValidForUpdate",
+    "purpose": "Attribute metadata for account.name, a text column every form shows: type, column security, and the MetadataId that RetrieveDependentComponents takes (M1, M3)."
+  },
+  {
+    "name": "attribute-account-creditlimit",
+    "path": "EntityDefinitions(LogicalName='account')/Attributes(LogicalName='creditlimit')?$select=LogicalName,MetadataId,AttributeType,AttributeTypeName,IsSecured,IsValidForUpdate",
+    "purpose": "Attribute metadata for account.creditlimit, a money column that plugins and workflows often write: type, column security, and the MetadataId that RetrieveDependentComponents takes (M1, M3)."
+  },
+  {
+    "name": "attribute-account-telephone1",
+    "path": "EntityDefinitions(LogicalName='account')/Attributes(LogicalName='telephone1')?$select=LogicalName,MetadataId,AttributeType,AttributeTypeName,IsSecured,IsValidForUpdate",
+    "purpose": "Attribute metadata for account.telephone1, a phone column, often on business rules and forms: type, column security, and the MetadataId that RetrieveDependentComponents takes (M1, M3)."
+  },
+  {
+    "name": "attribute-account-primarycontactid",
+    "path": "EntityDefinitions(LogicalName='account')/Attributes(LogicalName='primarycontactid')?$select=LogicalName,MetadataId,AttributeType,AttributeTypeName,IsSecured,IsValidForUpdate",
+    "purpose": "Attribute metadata for account.primarycontactid, a lookup column: type, column security, and the MetadataId that RetrieveDependentComponents takes (M1, M3)."
+  },
+  {
+    "name": "dependents-account-name",
+    "path": "RetrieveDependentComponents(ObjectId={attribute-account-name.MetadataId},ComponentType=2)",
+    "purpose": "What Dataverse's own dependency tracking says depends on account.name (attribute = component type 2). The M1 platform dependencies card. RetrieveDependentComponents ignores $select, so keep trims each row to the fields the card reads.",
+    "keep": [
+      "dependentcomponenttype",
+      "dependentcomponentobjectid",
+      "dependentcomponentparentid",
+      "dependencytype",
+      "requiredcomponentobjectid"
+    ]
+  },
+  {
+    "name": "dependents-account-creditlimit",
+    "path": "RetrieveDependentComponents(ObjectId={attribute-account-creditlimit.MetadataId},ComponentType=2)",
+    "purpose": "What Dataverse's own dependency tracking says depends on account.creditlimit (attribute = component type 2). The M1 platform dependencies card. RetrieveDependentComponents ignores $select, so keep trims each row to the fields the card reads.",
+    "keep": [
+      "dependentcomponenttype",
+      "dependentcomponentobjectid",
+      "dependentcomponentparentid",
+      "dependencytype",
+      "requiredcomponentobjectid"
+    ]
+  },
+  {
+    "name": "dependents-account-telephone1",
+    "path": "RetrieveDependentComponents(ObjectId={attribute-account-telephone1.MetadataId},ComponentType=2)",
+    "purpose": "What Dataverse's own dependency tracking says depends on account.telephone1 (attribute = component type 2). The M1 platform dependencies card. RetrieveDependentComponents ignores $select, so keep trims each row to the fields the card reads.",
+    "keep": [
+      "dependentcomponenttype",
+      "dependentcomponentobjectid",
+      "dependentcomponentparentid",
+      "dependencytype",
+      "requiredcomponentobjectid"
+    ]
+  },
+  {
+    "name": "dependents-account-primarycontactid",
+    "path": "RetrieveDependentComponents(ObjectId={attribute-account-primarycontactid.MetadataId},ComponentType=2)",
+    "purpose": "What Dataverse's own dependency tracking says depends on account.primarycontactid (attribute = component type 2). The M1 platform dependencies card. RetrieveDependentComponents ignores $select, so keep trims each row to the fields the card reads.",
+    "keep": [
+      "dependentcomponenttype",
+      "dependentcomponentobjectid",
+      "dependentcomponentparentid",
+      "dependencytype",
+      "requiredcomponentobjectid"
+    ]
+  },
+  {
+    "name": "names-forms-account-name",
+    "path": "systemforms?$select=formid,name&$filter=Microsoft.Dynamics.CRM.In(PropertyName='formid',PropertyValues=[{dependents-account-name[].dependentcomponentobjectid}])",
+    "purpose": "Names of the forms Dataverse tracks as depending on account.name, for the M1 platform dependencies card. The extension sends only the ids of type 60 (form); every dependent id here is harmless, since ids of other types match no form."
+  },
+  {
+    "name": "names-views-account-name",
+    "path": "savedqueries?$select=savedqueryid,name&$filter=Microsoft.Dynamics.CRM.In(PropertyName='savedqueryid',PropertyValues=[{dependents-account-name[].dependentcomponentobjectid}])",
+    "purpose": "Names of the system views (type 26) that depend on account.name (M1)."
+  },
+  {
+    "name": "names-charts-account-name",
+    "path": "savedqueryvisualizations?$select=savedqueryvisualizationid,name&$filter=Microsoft.Dynamics.CRM.In(PropertyName='savedqueryvisualizationid',PropertyValues=[{dependents-account-name[].dependentcomponentobjectid}])",
+    "purpose": "Names of the system charts (type 59) that depend on account.name (M1)."
+  },
+  {
+    "name": "names-processes-account-name",
+    "path": "workflows?$select=workflowid,name,category&$filter=Microsoft.Dynamics.CRM.In(PropertyName='workflowid',PropertyValues=[{dependents-account-name[].dependentcomponentobjectid}])",
+    "purpose": "Names and categories of the processes (type 29) that depend on account.name, so the card can tell a business rule or a cloud flow from a classic workflow (M1)."
+  },
+  {
+    "name": "names-plugin-steps-account-name",
+    "path": "sdkmessageprocessingsteps?$select=sdkmessageprocessingstepid,name&$filter=Microsoft.Dynamics.CRM.In(PropertyName='sdkmessageprocessingstepid',PropertyValues=[{dependents-account-name[].dependentcomponentobjectid}])",
+    "purpose": "Names of the plugin steps (type 92) that depend on account.name, through their filtering attributes (M1)."
+  },
+  {
+    "name": "names-step-images-account-name",
+    "path": "sdkmessageprocessingstepimages?$select=sdkmessageprocessingstepimageid,name,entityalias,_sdkmessageprocessingstepid_value&$filter=Microsoft.Dynamics.CRM.In(PropertyName='sdkmessageprocessingstepimageid',PropertyValues=[{dependents-account-name[].dependentcomponentobjectid}])",
+    "purpose": "Names of the plugin step images (type 93) that depend on account.name (M1). name is often empty in real orgs, so M2 also reads entityalias and the parent step, and falls back to them in that order."
+  },
+  {
+    "name": "name-relationship-account-name",
+    "path": "RelationshipDefinitions({dependents-account-name[dependentcomponenttype=10].dependentcomponentobjectid})?$select=SchemaName",
+    "purpose": "The schema name of one relationship (type 10) that depends on account.name. The extension looks relationships up one by one (M1)."
+  },
+  {
+    "name": "name-attribute-account-name",
+    "path": "EntityDefinitions({dependents-account-name[dependentcomponenttype=2].dependentcomponentparentid})/Attributes({dependents-account-name[dependentcomponenttype=2].dependentcomponentobjectid})?$select=LogicalName,EntityLogicalName",
+    "purpose": "The table and logical name of one column (type 2) that depends on account.name; its parent id is its table's MetadataId. The extension looks columns up one by one (M1)."
+  },
+  {
+    "name": "plugin-steps-account",
+    "path": "sdkmessageprocessingsteps?$select=sdkmessageprocessingstepid,name,stage,mode,rank,filteringattributes,statecode,solutionid,modifiedon&$expand=sdkmessageid($select=name),sdkmessagefilterid($select=primaryobjecttypecode)&$filter=sdkmessagefilterid/primaryobjecttypecode eq 'account'&$orderby=stage,rank",
+    "purpose": "Plugin step registrations on account: message, stage, mode, filtering attributes, rank, state, and the owning solution's id. The M2 'registered to fire' card. Lite reads it with $expand of sdkmessageid and sdkmessagefilterid only, the two lookups src/dataverse/allowlist.ts allows. It also reads modifiedon, for the M11 'what changed' panel."
+  },
+  {
+    "name": "solutions",
+    "path": "solutions?$select=solutionid,uniquename,friendlyname,ismanaged,_publisherid_value&$filter=Microsoft.Dynamics.CRM.In(PropertyName='solutionid',PropertyValues=[{plugin-steps-account[].solutionid}])",
+    "purpose": "The solutions that own account's plugin steps, with their publisher ids, to resolve a step to its publisher. ismanaged is packaging, never authorship (DESIGN.md)."
+  },
+  {
+    "name": "publishers",
+    "path": "publishers?$select=publisherid,uniquename,friendlyname,customizationprefix&$filter=Microsoft.Dynamics.CRM.In(PropertyName='publisherid',PropertyValues=[{solutions[]._publisherid_value}])",
+    "purpose": "The publishers of those solutions, the only valid signal for separating Microsoft-shipped steps from the customer's (DESIGN.md, 'Authorship comes from the publisher')."
+  },
+  {
+    "name": "workflows-account",
+    "path": "workflows?$select=workflowid,name,category,mode,type,statecode,primaryentity,scope,triggeroncreate,triggerondelete,triggeronupdateattributelist,createstage,updatestage,deletestage,processtriggerscope,_parentworkflowid_value,modifiedon&$filter=primaryentity eq 'account' and (category eq 0 or category eq 2) and (type eq 1 or type eq 2)",
+    "purpose": "Classic workflows (category 0) and business rules (category 2) on account, definitions and activations: real-time or background, and their trigger attribute lists (M2, M3). It also reads modifiedon, for the M11 'what changed' panel."
+  },
+  {
+    "name": "field-security-profiles",
+    "path": "fieldsecurityprofiles?$select=fieldsecurityprofileid,name",
+    "purpose": "Every field security profile, by name (M3)."
+  },
+  {
+    "name": "field-permissions-account",
+    "path": "fieldpermissions?$select=fieldpermissionid,entityname,attributelogicalname,canread,cancreate,canupdate,_fieldsecurityprofileid_value&$filter=entityname eq 'account'",
+    "purpose": "Column-security grants on account columns: which profile can read, create or update each secured column (M3)."
+  },
+  {
+    "name": "my-field-security-profiles",
+    "path": "systemusers({whoami.UserId})/systemuserprofiles_association?$select=fieldsecurityprofileid,name",
+    "purpose": "The field security profiles the current user holds directly, to say whether their profiles grant update (M3)."
+  },
+  {
+    "name": "forms-account-main",
+    "path": "systemforms?$select=formid,name,type,objecttypecode,formxml&$filter=objecttypecode eq 'account' and type eq 2 and formactivationstate eq 1 and name eq 'Account'",
+    "purpose": "The active main form named 'Account' and its definition: controls set read-only, onChange and OnLoad handlers (M3). One form is enough to build against."
+  },
+  {
+    "name": "forms-account-events",
+    "path": "systemforms?$select=formid,name,type,objecttypecode,formxml&$filter=objecttypecode eq 'account' and type eq 2 and formactivationstate eq 1 and name eq 'Pathix event map test'",
+    "purpose": "The active Account main form named 'Pathix event map test', which the capturing admin creates (a copy of a customized Account form) so it carries what test/event-map.test.ts asserts: an OnLoad handler and an OnSave handler, two OnChange columns (creditlimit with a disabled handler beside an enabled one, telephone1), a tab event and a control PreSearch handler. The fixture of the same name is a hand-written stand-in until this is captured: the development environment has no such form (captured 2026-10-09: an empty list), so the stand-in is kept. The capture overwrites it, so if the real form differs, update the expected lines in that test with it."
+  },
+  {
+    "name": "entity-privileges-account",
+    "path": "EntityDefinitions(LogicalName='account')?$select=Privileges",
+    "purpose": "The table's privileges as its definition names them, so M3 asks for the right Write privilege: prvWriteAccount for account, but prvWriteActivity for email and the other activity tables, where prvWrite<SchemaName> does not exist."
+  },
+  {
+    "name": "my-privileges-account",
+    "path": "systemusers({whoami.UserId})/Microsoft.Dynamics.CRM.RetrieveUserSetOfPrivilegesByNames(PrivilegeNames=@p1)?@p1=['prvWriteAccount']",
+    "purpose": "The current user's own Write privilege and its depth on account, the one privilege the M3 checklist asks for (named by entity-privileges-account)."
+  },
+  {
+    "name": "my-read-privileges",
+    "path": "systemusers({whoami.UserId})/Microsoft.Dynamics.CRM.RetrieveUserSetOfPrivilegesByNames(PrivilegeNames=@p1)?@p1=['prvReadWorkflow','prvReadTeam','prvReadRole']",
+    "purpose": "The current user's own depth on reading classic workflows and business rules, teams and roles. Workflows are owned by users and teams and roles by business units, so below Global depth Dataverse lists only the rows the user can see, and Lite marks those lists as possibly incomplete. Plugin step registrations are owned by the organization and are not asked about. The fixture is a hand-written stand-in until this is captured. Capture it as a non-admin whose role reads Process, Team and Security Role at Business Unit depth, and who is a member of one owner team in another business unit, so the fixture shows the lower Depth strings and my-teams shows a cross-unit team."
+  },
+  {
+    "name": "my-teams",
+    "path": "systemusers({whoami.UserId})/teammembership_association?$select=teamid,name,teamtype,_businessunitid_value",
+    "purpose": "The teams the current user is a member of (M6), with each team's business unit, which says whether the user's Read depth on roles reaches the team's roles (review R4). The committed fixture was captured before _businessunitid_value was selected; capture again to add it. Their roles and column security profiles count toward what the user can do, and the checklist reads them apart from the user's own. The capturing user must be in at least one team that holds a role, or the queries below that use it fail."
+  },
+  {
+    "name": "team-roles",
+    "path": "teamrolescollection?$select=teamid,roleid&$filter=Microsoft.Dynamics.CRM.In(PropertyName='teamid',PropertyValues=[{my-teams[].teamid}])",
+    "purpose": "The roles those teams hold (M6). Nobody has verified whether RetrieveUserSetOfPrivilegesByNames counts team roles, so the checklist reads them directly."
+  },
+  {
+    "name": "team-profiles",
+    "path": "teamprofilescollection?$select=teamid,fieldsecurityprofileid&$filter=Microsoft.Dynamics.CRM.In(PropertyName='teamid',PropertyValues=[{my-teams[].teamid}])",
+    "purpose": "The column security profiles those teams hold (M6), so the checklist can say a team's profile grants update."
+  },
+  {
+    "name": "role-write-privilege-account",
+    "path": "roleprivilegescollection?$select=roleid,privilegeid,privilegedepthmask&$filter=privilegeid eq {entity-privileges-account.Privileges[PrivilegeType=Write].PrivilegeId} and Microsoft.Dynamics.CRM.In(PropertyName='roleid',PropertyValues=[{team-roles[].roleid}])",
+    "purpose": "The depth mask at which the roles the user's teams hold have the Write privilege on account: 1 Basic, 2 Local, 4 Deep, 8 Global (M6). Only those roles are asked about, not every role in the org."
+  },
+  {
+    "name": "forms-modified-account",
+    "path": "systemforms?$select=formid,name,type,publishedon&$filter=objecttypecode eq 'account' and formactivationstate eq 1",
+    "purpose": "The active forms on account, each with its type and when it was last published: the forms half of the M11 'what changed on this table' panel (Lite). A form has no modifiedon (the systemform table answers 400 to it), so publishedon is its change date: an edit that is not published does not move it, and publishing again with no change does. The fixture is a real capture from a development environment."
+  },
+  {
+    "name": "modified-forms-account-name",
+    "path": "systemforms?$select=formid,publishedon&$filter=Microsoft.Dynamics.CRM.In(PropertyName='formid',PropertyValues=[{dependents-account-name[].dependentcomponentobjectid}])",
+    "purpose": "The live freshness read (M11, connected) for forms, by id: when each form Pathix already knows was last published, to compare with Pathix's scan. A form has no modifiedon, so this reads publishedon. The fixture is a real capture from a development environment; the extension reads only the id and publishedon."
+  },
+  {
+    "name": "modified-processes-account-name",
+    "path": "workflows?$select=workflowid,modifiedon&$filter=Microsoft.Dynamics.CRM.In(PropertyName='workflowid',PropertyValues=[{dependents-account-name[].dependentcomponentobjectid}])",
+    "purpose": "The live freshness read (M11, connected) for workflows, business rules and flows, by id. Not captured yet; no stand-in file; tests answer it inline."
+  },
+  {
+    "name": "modified-plugin-steps-account-name",
+    "path": "sdkmessageprocessingsteps?$select=sdkmessageprocessingstepid,modifiedon&$filter=Microsoft.Dynamics.CRM.In(PropertyName='sdkmessageprocessingstepid',PropertyValues=[{dependents-account-name[].dependentcomponentobjectid}])",
+    "purpose": "The live freshness read (M11, connected) for plugin steps, by id. Not captured yet; no stand-in file; tests answer it inline."
+  },
+  {
+    "name": "modified-views-account-name",
+    "path": "savedqueries?$select=savedqueryid,modifiedon&$filter=Microsoft.Dynamics.CRM.In(PropertyName='savedqueryid',PropertyValues=[{dependents-account-name[].dependentcomponentobjectid}])",
+    "purpose": "The live freshness read (M11, connected) for views, by id. Not captured yet; no stand-in file; tests answer it inline."
+  },
+  {
+    "name": "modified-charts-account-name",
+    "path": "savedqueryvisualizations?$select=savedqueryvisualizationid,modifiedon&$filter=Microsoft.Dynamics.CRM.In(PropertyName='savedqueryvisualizationid',PropertyValues=[{dependents-account-name[].dependentcomponentobjectid}])",
+    "purpose": "The live freshness read (M11, connected) for charts, by id. Not captured yet; no stand-in file; tests answer it inline."
+  },
+  {
+    "name": "plugin-steps-update-all-tables",
+    "path": "sdkmessageprocessingsteps?$select=sdkmessageprocessingstepid,name,stage,mode,rank,filteringattributes,statecode,solutionid,modifiedon&$expand=sdkmessageid($select=name)&$filter=_sdkmessagefilterid_value eq null and (sdkmessageid/name eq 'Update' or sdkmessageid/name eq 'UpdateMultiple')&$orderby=stage,rank",
+    "purpose": "Plugin steps registered on Update or UpdateMultiple with no message filter, so they fire on an update of every table. plugin-steps-account cannot see them: it filters on the step's message filter table. The M2 'registered to fire' card lists them beside the table's own steps, and the Lite 'what changed' panel reads their modifiedon from the same answer. Last in this file so a capture does not renumber the GUIDs of the fixtures above it."
+  },
+  {
+    "name": "solutions-update-all-tables",
+    "path": "solutions?$select=solutionid,uniquename,friendlyname,ismanaged,_publisherid_value&$filter=Microsoft.Dynamics.CRM.In(PropertyName='solutionid',PropertyValues=[{plugin-steps-update-all-tables[].solutionid}])",
+    "purpose": "The solutions that own the steps registered for every table, with their publisher ids, as solutions does for account's steps. ismanaged is packaging, never authorship (DESIGN.md)."
+  },
+  {
+    "name": "publishers-update-all-tables",
+    "path": "publishers?$select=publisherid,uniquename,friendlyname,customizationprefix&$filter=Microsoft.Dynamics.CRM.In(PropertyName='publisherid',PropertyValues=[{solutions-update-all-tables[]._publisherid_value}])",
+    "purpose": "The publishers of those solutions, so the fixtures can fold the Microsoft-shipped steps registered for every table by publisher."
+  },
+  {
+    "name": "attribute-account-pathix-legalofficer",
+    "path": "EntityDefinitions(LogicalName='account')/Attributes(LogicalName='pathix_legalofficer')?$select=LogicalName,MetadataId,AttributeType,AttributeTypeName,IsSecured,IsValidForUpdate",
+    "purpose": "Attribute metadata for account.pathix_legalofficer, the custom lookup the Account form sets read-only: the demo's locked field. Its Why locked? card reads the platform and column security lines from it. Last in the list, so capturing it never renumbers the fixtures above."
+  },
+  {
+    "name": "dependents-account-pathix-legalofficer",
+    "path": "RetrieveDependentComponents(ObjectId={attribute-account-pathix-legalofficer.MetadataId},ComponentType=2)",
+    "purpose": "What Dataverse's own dependency tracking says depends on account.pathix_legalofficer, for the demo's locked field's Dependencies tab. RetrieveDependentComponents ignores $select, so keep trims each row to the fields the card reads.",
+    "keep": [
+      "dependentcomponenttype",
+      "dependentcomponentobjectid",
+      "dependentcomponentparentid",
+      "dependencytype",
+      "requiredcomponentobjectid"
+    ]
+  },
+  {
+    "name": "name-relationship-account-pathix-legalofficer",
+    "path": "RelationshipDefinitions({dependents-account-pathix-legalofficer[dependentcomponenttype=10].dependentcomponentobjectid})?$select=SchemaName",
+    "purpose": "The schema name of the relationship (type 10) that depends on account.pathix_legalofficer: the lookup's own relationship to contact."
+  }
+]

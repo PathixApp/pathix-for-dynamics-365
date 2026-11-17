@@ -1,0 +1,12 @@
+{
+  "@odata.context": "https://contoso.crm.dynamics.com/api/data/v9.2/$metadata#EntityDefinitions('account')/Attributes/Microsoft.Dynamics.CRM.StringAttributeMetadata(LogicalName,MetadataId,AttributeType,AttributeTypeName,IsSecured,IsValidForUpdate)/$entity",
+  "@odata.type": "#Microsoft.Dynamics.CRM.StringAttributeMetadata",
+  "MetadataId": "5c4a0000-0000-4000-8000-000000000004",
+  "AttributeType": "String",
+  "IsValidForUpdate": true,
+  "IsSecured": false,
+  "LogicalName": "name",
+  "AttributeTypeName": {
+    "Value": "StringType"
+  }
+}

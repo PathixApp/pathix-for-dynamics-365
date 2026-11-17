@@ -1,0 +1,33 @@
+{
+  "@odata.context": "https://contoso.crm.dynamics.com/api/data/v9.2/$metadata#solutions(solutionid,uniquename,friendlyname,ismanaged,_publisherid_value)",
+  "value": [
+    {
+      "solutionid": "5c4a0000-0000-4000-8000-000000000077",
+      "_publisherid_value": "5c4a0000-0000-4000-8000-000000000195",
+      "uniquename": "System",
+      "ismanaged": true,
+      "friendlyname": "System Solution"
+    },
+    {
+      "solutionid": "5c4a0000-0000-4000-8000-000000000084",
+      "_publisherid_value": "5c4a0000-0000-4000-8000-000000000196",
+      "uniquename": "Active",
+      "ismanaged": false,
+      "friendlyname": "Active Solution"
+    },
+    {
+      "solutionid": "5c4a0000-0000-4000-8000-000000000158",
+      "_publisherid_value": "5c4a0000-0000-4000-8000-000000000195",
+      "uniquename": "Basic",
+      "ismanaged": false,
+      "friendlyname": "Basic Solution"
+    },
+    {
+      "solutionid": "5c4a0000-0000-4000-8000-000000000335",
+      "_publisherid_value": "5c4a0000-0000-4000-8000-000000000195",
+      "uniquename": "MessageProcessorExtension",
+      "ismanaged": true,
+      "friendlyname": "MessageProcessorExtension"
+    }
+  ]
+}

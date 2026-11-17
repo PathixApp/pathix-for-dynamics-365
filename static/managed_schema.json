@@ -1,0 +1,10 @@
+{
+  "type": "object",
+  "properties": {
+    "hideTips": {
+      "title": "Hide tips on Lite cards",
+      "description": "When true, Lite cards do not show their footer tip line, and users cannot turn it back on.",
+      "type": "boolean"
+    }
+  }
+}

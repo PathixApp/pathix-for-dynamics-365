@@ -1,0 +1,13 @@
+{
+  "_standIn": "Hand-written stand-in, not a captured response. Its values match a live read of account.pathix_legalofficer in a development environment on 2026-11-12 (a lookup to contact, not secured, valid for update); its MetadataId is a synthetic GUID. The demo's locked field needs it: without it, the Why locked? card could not read the column's definition. Capture it with scripts/capture-dataverse-fixtures.mjs (query attribute-account-pathix-legalofficer in queries.json) and the capture overwrites this file.",
+  "@odata.context": "https://contoso.crm.dynamics.com/api/data/v9.2/$metadata#EntityDefinitions('account')/Attributes/Microsoft.Dynamics.CRM.LookupAttributeMetadata(LogicalName,MetadataId,AttributeType,AttributeTypeName,IsSecured,IsValidForUpdate)/$entity",
+  "@odata.type": "#Microsoft.Dynamics.CRM.LookupAttributeMetadata",
+  "MetadataId": "5c4a0000-0000-4000-8000-000000000404",
+  "AttributeType": "Lookup",
+  "IsValidForUpdate": true,
+  "IsSecured": false,
+  "LogicalName": "pathix_legalofficer",
+  "AttributeTypeName": {
+    "Value": "LookupType"
+  }
+}

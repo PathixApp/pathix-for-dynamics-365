@@ -1,0 +1,59 @@
+{
+  "@odata.context": "https://contoso.crm.dynamics.com/api/data/v9.2/$metadata#systemforms(formid,name)",
+  "value": [
+    {
+      "type": 9,
+      "objecttypecode": "appointment",
+      "formid": "5c4a0000-0000-4000-8000-000000000058",
+      "name": "After Meeting"
+    },
+    {
+      "type": 11,
+      "objecttypecode": "account",
+      "formid": "5c4a0000-0000-4000-8000-000000000033",
+      "name": "Account Card form"
+    },
+    {
+      "type": 9,
+      "objecttypecode": "contact",
+      "formid": "5c4a0000-0000-4000-8000-000000000029",
+      "name": "Update Contact"
+    },
+    {
+      "type": 6,
+      "objecttypecode": "account",
+      "formid": "5c4a0000-0000-4000-8000-000000000038",
+      "name": "Account Reference Panel"
+    },
+    {
+      "type": 2,
+      "objecttypecode": "account",
+      "formid": "5c4a0000-0000-4000-8000-000000000019",
+      "name": "Account for Interactive experience"
+    },
+    {
+      "type": 6,
+      "objecttypecode": "account",
+      "formid": "5c4a0000-0000-4000-8000-000000000065",
+      "name": "account card"
+    },
+    {
+      "type": 2,
+      "objecttypecode": "account",
+      "formid": "5c4a0000-0000-4000-8000-000000000045",
+      "name": "Information"
+    },
+    {
+      "type": 7,
+      "objecttypecode": "account",
+      "formid": "5c4a0000-0000-4000-8000-000000000041",
+      "name": "Account Quick Create"
+    },
+    {
+      "type": 2,
+      "objecttypecode": "account",
+      "formid": "5c4a0000-0000-4000-8000-000000000021",
+      "name": "Account"
+    }
+  ]
+}

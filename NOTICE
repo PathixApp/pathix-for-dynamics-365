@@ -1,0 +1,43 @@
+Pathix for Dynamics 365 (browser extension)
+Copyright 2026 Pathix L.L.C.
+
+This product is licensed under the Apache License, Version 2.0.
+See the LICENSE file for the full text.
+
+Trademarks
+
+Pathix(TM) is a trademark of Pathix L.L.C. The Apache License covers
+the code in this repository. It grants no rights to the Pathix(TM)
+name, logo or mark. Section 6 of the license says so too.
+
+If you distribute a fork or a modified version, ship it under your own
+name and branding. Do not call it Pathix, and do not present it as made
+or endorsed by the Pathix maintainers. You may say, accurately, that
+your version is based on this project.
+
+Pathix is not affiliated with, endorsed by, or sponsored by Microsoft.
+Microsoft, Dynamics 365, Dataverse and Power Apps are trademarks of the
+Microsoft group of companies.
+
+Third-party software
+
+src/content/findings-icon.ts inlines the path data of the Flag icon
+from Lucide (lucide-react 1.11.0, https://lucide.dev), under the ISC
+License. The Flag icon is not one of the icons Lucide derives from the
+Feather project. Lucide's license reads:
+
+ISC License
+
+Copyright (c) 2026 Lucide Icons and Contributors
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.

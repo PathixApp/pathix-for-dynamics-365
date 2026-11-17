@@ -1,0 +1,9 @@
+{
+  "@odata.context": "https://contoso.crm.dynamics.com/api/data/v9.2/$metadata#fieldsecurityprofiles(fieldsecurityprofileid,name)",
+  "value": [
+    {
+      "name": "System Administrator",
+      "fieldsecurityprofileid": "5c4a0000-0000-4000-8000-000000000201"
+    }
+  ]
+}
